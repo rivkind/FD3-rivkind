@@ -1,0 +1,8 @@
+.ItemShop_active{
+    background-color: #ccc;
+}
+a{cursor: pointer}
+a:hover{text-decoration: underline}
+td{
+ padding: 5px;   
+}
