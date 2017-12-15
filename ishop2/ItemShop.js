@@ -3,8 +3,6 @@ var ItemShop = React.createClass({
     displayName: 'ItemShop',
 
     propTypes: {
-        isNewItem: React.PropTypes.bool.isRequired,
-        isEditItem: React.PropTypes.bool.isRequired,
         cost: React.PropTypes.string.isRequired,
         text: React.PropTypes.string.isRequired,
         descr: React.PropTypes.string.isRequired,
@@ -30,7 +28,6 @@ var ItemShop = React.createClass({
     },
 
     render: function() {
-        console.log(this.props.activeRow);
         return React.DOM.tr({
             key:this.props.code,
             onClick:this.rowClicked,

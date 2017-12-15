@@ -5,6 +5,7 @@ var InternetShop = React.createClass({
     propTypes: {
         items:React.PropTypes.arrayOf(
           React.PropTypes.shape({
+            id_item: React.PropTypes.number.isRequired,
             title: React.PropTypes.string.isRequired,
             cost: React.PropTypes.string.isRequired,
             description: React.PropTypes.string.isRequired,
@@ -67,7 +68,7 @@ var InternetShop = React.createClass({
                     React.DOM.tbody( null, itemsCode ),
                 ),
             ),  
-        ((this.state.isNewItem)||(this.state.activeItem&&isEditItem))
+        ((this.state.isNewItem)||(this.state.activeItem))
         ?React.createElement(ViewBlock,{isNewItem:this.state.isNewItem,
             isEditItem:this.state.isEditItem,
             activeItem:this.state.activeItem,
