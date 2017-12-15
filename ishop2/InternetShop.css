@@ -1,8 +1,11 @@
 .InternetShop{
-    float:left;
+    float: left;
     
 }
 .btnNewItem{
     display: block;
     width:100%;
+}
+.mainBlock{
+    display: inline-table;
 }

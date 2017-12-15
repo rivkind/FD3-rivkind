@@ -3,6 +3,8 @@ var ItemShop = React.createClass({
     displayName: 'ItemShop',
 
     propTypes: {
+        num: React.PropTypes.number.isRequired,
+        code: React.PropTypes.number.isRequired,
         cost: React.PropTypes.string.isRequired,
         text: React.PropTypes.string.isRequired,
         descr: React.PropTypes.string.isRequired,
@@ -14,12 +16,11 @@ var ItemShop = React.createClass({
 
     rowClicked: function(EO) {
         //console.log(this.props.code);
-        this.props.cbSelected(this.props.code);
+        this.props.cbSelected(this.props.num,this.props.code);
     },
 
     editClicked: function(EO) {
-        console.log(this.props.num);
-        this.props.cbEdited(this.props.num);
+        this.props.cbEdited(this.props.num,this.props.code);
     },
 
     deleteClicked: function(EO) {
@@ -30,12 +31,12 @@ var ItemShop = React.createClass({
     render: function() {
         return React.DOM.tr({
             key:this.props.code,
-            onClick:this.rowClicked,
-            className: this.props.activeRow == this.props.code ? 'ItemShop_active': '',
+            
+            className: this.props.activeRow === this.props.code ? 'ItemShop_active': '',
            },
-                React.DOM.td({key:1},this.props.text),
-                React.DOM.td({key:2},this.props.descr),
-                React.DOM.td({key:3},this.props.cost),
+                React.DOM.td({onClick:this.rowClicked,key:1},this.props.text),
+                React.DOM.td({onClick:this.rowClicked,key:2},this.props.descr),
+                React.DOM.td({onClick:this.rowClicked,key:3},this.props.cost),
                 React.DOM.td({key:4},
                     React.DOM.a({onClick:this.editClicked},'edit'),
                 ),
