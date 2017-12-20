@@ -22,13 +22,12 @@ var InternetShop = React.createClass({
           activeItem: null,
           activeRow: null,
           isDelete:false,
+          activeData: [],
         };
     },
 
     rowSelected: function(num,code) {
-         this.setState( {activeRow:code,activeItem:num,isNewItem:false,isEditItem:false} );
-       
-        
+        this.setState( {activeRow:code,activeItem:num,isNewItem:false,isEditItem:false,activeData: this.state.items[num]} );
     },
 
     rowEdited: function(code,num) {
@@ -82,7 +81,7 @@ var InternetShop = React.createClass({
                 React.createElement(ViewBlock,{isNewItem:this.state.isNewItem,
                     isEditItem:this.state.isEditItem,
                     activeItem:this.state.activeItem,
-                    data:this.state.items,
+                    data:this.state.activeData,
                     headers:this.props.headers,
                     cbCancel:this.clickCancel,
                     cbSubmit:this.clickSubmit,

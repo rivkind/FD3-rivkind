@@ -1,0 +1,5 @@
+[ 
+    {"id_item":2, "title":"Товар 1", "cost":"2.2", "description":"Описание 1"}, 
+    {"id_item":3, "title":"Товар 2", "cost":"5.2", "description":"Описание 2"}, 
+    {"id_item":4, "title":"Товар 3", "cost":"356.0", "description":"Описание 3"}
+]
