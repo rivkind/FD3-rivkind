@@ -32,7 +32,6 @@ class InternetShop extends React.Component {
   }
 
   rowSelected = (code,row) => {
-    console.log('выбран ответ с кодом '+row);
     this.setState( {activeRow:code, activeItem:row,isNewItem:false,isEditItem:false} );
   }
 
@@ -46,7 +45,7 @@ class InternetShop extends React.Component {
 
   rowDeleted = (row) => {
     if(confirm("Вы уверены, что хотите удалить?")){
-      var updData = this.state.items;
+      let updData = this.state.items;
       updData.splice(row, 1);
       this.setState( {items:updData,isEditItem:false,isNewItem:false,activeRow:null, activeItem:null} );
     }
@@ -57,8 +56,7 @@ class InternetShop extends React.Component {
   }
 
   render() {
-    //var newArr = this.props.items[this.state.activeItem].slice();
-    var itemsCode = this.props.items.map( (v,idx) =>
+    let itemsCode = this.props.items.map( (v,idx) =>
       <ItemShop key={idx}
         row={idx}
         text={v.title} cost={v.cost} code={v.id_item}
@@ -69,7 +67,6 @@ class InternetShop extends React.Component {
         cbDeleted={this.rowDeleted}
       />
     );
-    //console.log(this.props.items[this.state.activeItem]);
     return (
       <div>
         <div className='mainBlock'>
