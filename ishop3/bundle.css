@@ -1,6 +1,18 @@
-a{cursor:pointer;}
+.InternetShop button{
+    float:right;
+}
+.InternetShop{
+    float:left;
+}a{cursor:pointer;}
 a:hover{text-decoration: underline;}
 td{
     padding:5px;
 }
-.ItemShop_active{background-color: greenyellow}
+.ItemShop_active{background-color: greenyellow}.viewBlock{
+    border:1px solid #eee;
+    padding: 6px;
+    float: left;
+}
+.viewBlock span{
+font-weight: bold;
+}

@@ -1,0 +1,8 @@
+.viewBlock{
+    border:1px solid #eee;
+    padding: 6px;
+    float: left;
+}
+.viewBlock span{
+font-weight: bold;
+}

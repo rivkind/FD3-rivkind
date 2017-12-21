@@ -5,6 +5,7 @@ import './InternetShop.css';
 
 import HeaderBlock from './HeaderBlock';
 import ItemShop from './ItemShop';
+import ViewBlock from './ViewBlock';
 
 class InternetShop extends React.Component {
 
@@ -32,27 +33,31 @@ class InternetShop extends React.Component {
 
   rowSelected = (code,row) => {
     console.log('выбран ответ с кодом '+row);
-    this.setState( {activeRow:code} );
-  }
-/*
-  vote = () => {
-    console.log('голосование завершено, выбран ответ с кодом '+this.state.selectedAnswerCode);
-
-    this.props.answers.forEach( answer => {
-      if ( answer.code==this.state.selectedAnswerCode )
-        answer.count++;
-    } );
-
-    this.setState( {workMode:2} );
+    this.setState( {activeRow:code, activeItem:row,isNewItem:false,isEditItem:false} );
   }
 
-  freeAnswerTextChanged = (fat) => { 
-    console.log('VotesBlock: текст свободного ответа изменён - '+fat); 
-    this.setState( {freeanswertext:fat} );
+  rowEdited = (code,row) => {
+    this.setState( {activeRow:code, activeItem:row,isEditItem:true} );
   }
-*/
+
+  blockCancel = (code,row) => {
+    this.setState( {activeRow:null, activeItem:null,isEditItem:false,isNewItem:false} );
+  }
+
+  rowDeleted = (row) => {
+    if(confirm("Вы уверены, что хотите удалить?")){
+      var updData = this.state.items;
+      updData.splice(row, 1);
+      this.setState( {items:updData,isEditItem:false,isNewItem:false,activeRow:null, activeItem:null} );
+    }
+  }
+
+  newItem = () => {
+    this.setState( {activeRow:null, activeItem:null,isNewItem:true,isEditItem:false} );
+  }
+
   render() {
-
+    //var newArr = this.props.items[this.state.activeItem].slice();
     var itemsCode = this.props.items.map( (v,idx) =>
       <ItemShop key={idx}
         row={idx}
@@ -60,28 +65,38 @@ class InternetShop extends React.Component {
         description={v.description}
         activeRow={this.state.activeRow}
         cbSelected={this.rowSelected}
+        cbEdited={this.rowEdited}
+        cbDeleted={this.rowDeleted}
       />
     );
-    
+    //console.log(this.props.items[this.state.activeItem]);
     return (
       <div>
         <div className='mainBlock'>
           <table className='InternetShop'>
             <HeaderBlock headers={this.props.headers} />
-            <tbody>{itemsCode}</tbody>
+            <tbody>
+            {itemsCode}
+            {
+              (!this.state.isNewItem) &&
+              <tr><td colSpan='5'><button onClick={this.newItem}>Новый товар</button></td></tr>
+            }
+            </tbody>
           </table>
+          {
+            ((this.state.activeRow)||this.state.isNewItem) &&
+            <ViewBlock 
+              items={this.props.items} 
+              isNewItem={this.state.isNewItem}
+              activeItem={this.state.activeItem}
+              isEditItem={this.state.isEditItem}
+              headers={this.props.headers}
+              cbCancel={this.blockCancel}
+             />
+          }
         </div>
       </div>
-      /*<div className='VotesBlock'>
-        <VotesQuestion question={this.props.question}/>
-        <div className='Answers'>{answersCode}</div>
-        {
-          ((this.state.workMode==1)&&this.state.selectedAnswerCode) &&
-          <input type='button' value='проголосовать' onClick={this.vote} />
-        }
-      </div>*/
-    )
-    ;
+    );
 
   }
 

@@ -314,6 +314,41 @@ module.exports = emptyFunction;
 /* 3 */
 /***/ (function(module, exports, __webpack_require__) {
 
+/* WEBPACK VAR INJECTION */(function(process) {/**
+ * Copyright (c) 2013-present, Facebook, Inc.
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
+ */
+
+if (process.env.NODE_ENV !== 'production') {
+  var REACT_ELEMENT_TYPE = (typeof Symbol === 'function' &&
+    Symbol.for &&
+    Symbol.for('react.element')) ||
+    0xeac7;
+
+  var isValidElement = function(object) {
+    return typeof object === 'object' &&
+      object !== null &&
+      object.$$typeof === REACT_ELEMENT_TYPE;
+  };
+
+  // By explicitly using `prop-types` you are opting into new development behavior.
+  // http://fb.me/prop-types-in-prod
+  var throwOnDirectAccess = true;
+  module.exports = __webpack_require__(37)(isValidElement, throwOnDirectAccess);
+} else {
+  // By explicitly using `prop-types` you are opting into new production behavior.
+  // http://fb.me/prop-types-in-prod
+  module.exports = __webpack_require__(39)();
+}
+
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
+
+/***/ }),
+/* 4 */
+/***/ (function(module, exports, __webpack_require__) {
+
 "use strict";
 
 
@@ -353,7 +388,7 @@ emptyFunction.thatReturnsArgument = function (arg) {
 module.exports = emptyFunction;
 
 /***/ }),
-/* 4 */
+/* 5 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -367,9 +402,9 @@ module.exports = emptyFunction;
 
 
 if (process.env.NODE_ENV !== 'production') {
-  var invariant = __webpack_require__(5);
+  var invariant = __webpack_require__(6);
   var warning = __webpack_require__(11);
-  var ReactPropTypesSecret = __webpack_require__(7);
+  var ReactPropTypesSecret = __webpack_require__(8);
   var loggedTypeFailures = {};
 }
 
@@ -420,7 +455,7 @@ module.exports = checkPropTypes;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 5 */
+/* 6 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -480,7 +515,7 @@ module.exports = invariant;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 6 */
+/* 7 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -522,7 +557,7 @@ emptyFunction.thatReturnsArgument = function (arg) {
 module.exports = emptyFunction;
 
 /***/ }),
-/* 7 */
+/* 8 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -539,41 +574,6 @@ var ReactPropTypesSecret = 'SECRET_DO_NOT_PASS_THIS_OR_YOU_WILL_BE_FIRED';
 
 module.exports = ReactPropTypesSecret;
 
-
-/***/ }),
-/* 8 */
-/***/ (function(module, exports, __webpack_require__) {
-
-/* WEBPACK VAR INJECTION */(function(process) {/**
- * Copyright (c) 2013-present, Facebook, Inc.
- *
- * This source code is licensed under the MIT license found in the
- * LICENSE file in the root directory of this source tree.
- */
-
-if (process.env.NODE_ENV !== 'production') {
-  var REACT_ELEMENT_TYPE = (typeof Symbol === 'function' &&
-    Symbol.for &&
-    Symbol.for('react.element')) ||
-    0xeac7;
-
-  var isValidElement = function(object) {
-    return typeof object === 'object' &&
-      object !== null &&
-      object.$$typeof === REACT_ELEMENT_TYPE;
-  };
-
-  // By explicitly using `prop-types` you are opting into new development behavior.
-  // http://fb.me/prop-types-in-prod
-  var throwOnDirectAccess = true;
-  module.exports = __webpack_require__(37)(isValidElement, throwOnDirectAccess);
-} else {
-  // By explicitly using `prop-types` you are opting into new production behavior.
-  // http://fb.me/prop-types-in-prod
-  module.exports = __webpack_require__(39)();
-}
-
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
 /* 9 */
@@ -711,7 +711,7 @@ module.exports = emptyObject;
 
 
 
-var emptyFunction = __webpack_require__(6);
+var emptyFunction = __webpack_require__(7);
 
 /**
  * Similar to invariant but only logs a warning if the condition is not met.
@@ -1214,7 +1214,7 @@ var _InternetShop2 = _interopRequireDefault(_InternetShop);
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var headersArr = ['Title', 'Description', 'Cost'];
-var itemsArr = __webpack_require__(45);
+var itemsArr = __webpack_require__(47);
 
 _reactDom2.default.render(_react2.default.createElement(_InternetShop2.default, {
   headers: headersArr,
@@ -1235,7 +1235,7 @@ _reactDom2.default.render(_react2.default.createElement(_InternetShop2.default, 
  * LICENSE file in the root directory of this source tree.
  */
 
-var m=__webpack_require__(9),n=__webpack_require__(10),p=__webpack_require__(3),q="function"===typeof Symbol&&Symbol["for"],r=q?Symbol["for"]("react.element"):60103,t=q?Symbol["for"]("react.call"):60104,u=q?Symbol["for"]("react.return"):60105,v=q?Symbol["for"]("react.portal"):60106,w=q?Symbol["for"]("react.fragment"):60107,x="function"===typeof Symbol&&Symbol.iterator;
+var m=__webpack_require__(9),n=__webpack_require__(10),p=__webpack_require__(4),q="function"===typeof Symbol&&Symbol["for"],r=q?Symbol["for"]("react.element"):60103,t=q?Symbol["for"]("react.call"):60104,u=q?Symbol["for"]("react.return"):60105,v=q?Symbol["for"]("react.portal"):60106,w=q?Symbol["for"]("react.fragment"):60107,x="function"===typeof Symbol&&Symbol.iterator;
 function y(a){for(var b=arguments.length-1,e="Minified React error #"+a+"; visit http://facebook.github.io/react/docs/error-decoder.html?invariant\x3d"+a,c=0;c<b;c++)e+="\x26args[]\x3d"+encodeURIComponent(arguments[c+1]);b=Error(e+" for the full message or use the non-minified dev environment for full errors and additional helpful warnings.");b.name="Invariant Violation";b.framesToPop=1;throw b;}
 var z={isMounted:function(){return!1},enqueueForceUpdate:function(){},enqueueReplaceState:function(){},enqueueSetState:function(){}};function A(a,b,e){this.props=a;this.context=b;this.refs=n;this.updater=e||z}A.prototype.isReactComponent={};A.prototype.setState=function(a,b){"object"!==typeof a&&"function"!==typeof a&&null!=a?y("85"):void 0;this.updater.enqueueSetState(this,a,b,"setState")};A.prototype.forceUpdate=function(a){this.updater.enqueueForceUpdate(this,a,"forceUpdate")};
 function B(a,b,e){this.props=a;this.context=b;this.refs=n;this.updater=e||z}function C(){}C.prototype=A.prototype;var D=B.prototype=new C;D.constructor=B;m(D,A.prototype);D.isPureReactComponent=!0;function E(a,b,e){this.props=a;this.context=b;this.refs=n;this.updater=e||z}var F=E.prototype=new C;F.constructor=E;m(F,A.prototype);F.unstable_isAsyncReactComponent=!0;F.render=function(){return this.props.children};var G={current:null},H=Object.prototype.hasOwnProperty,I={key:!0,ref:!0,__self:!0,__source:!0};
@@ -1275,8 +1275,8 @@ var _assign = __webpack_require__(9);
 var emptyObject = __webpack_require__(10);
 var invariant = __webpack_require__(23);
 var warning = __webpack_require__(24);
-var emptyFunction = __webpack_require__(3);
-var checkPropTypes = __webpack_require__(4);
+var emptyFunction = __webpack_require__(4);
+var checkPropTypes = __webpack_require__(5);
 
 // TODO: this is special because it gets imported during build.
 
@@ -2689,7 +2689,7 @@ module.exports = invariant;
 
 
 
-var emptyFunction = __webpack_require__(3);
+var emptyFunction = __webpack_require__(4);
 
 /**
  * Similar to invariant but only logs a warning if the condition is not met.
@@ -3115,7 +3115,7 @@ var shallowEqual = __webpack_require__(16);
 var containsNode = __webpack_require__(17);
 var focusNode = __webpack_require__(18);
 var emptyObject = __webpack_require__(19);
-var checkPropTypes = __webpack_require__(4);
+var checkPropTypes = __webpack_require__(5);
 var hyphenateStyleName = __webpack_require__(32);
 var camelizeStyleName = __webpack_require__(34);
 
@@ -18785,7 +18785,7 @@ var _react = __webpack_require__(1);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _propTypes = __webpack_require__(8);
+var _propTypes = __webpack_require__(3);
 
 var _propTypes2 = _interopRequireDefault(_propTypes);
 
@@ -18798,6 +18798,10 @@ var _HeaderBlock2 = _interopRequireDefault(_HeaderBlock);
 var _ItemShop = __webpack_require__(43);
 
 var _ItemShop2 = _interopRequireDefault(_ItemShop);
+
+var _ViewBlock = __webpack_require__(45);
+
+var _ViewBlock2 = _interopRequireDefault(_ViewBlock);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -18831,7 +18835,19 @@ var InternetShop = function (_React$Component) {
       activeData: []
     }, _this.rowSelected = function (code, row) {
       console.log('выбран ответ с кодом ' + row);
-      _this.setState({ activeRow: code });
+      _this.setState({ activeRow: code, activeItem: row, isNewItem: false, isEditItem: false });
+    }, _this.rowEdited = function (code, row) {
+      _this.setState({ activeRow: code, activeItem: row, isEditItem: true });
+    }, _this.blockCancel = function (code, row) {
+      _this.setState({ activeRow: null, activeItem: null, isEditItem: false, isNewItem: false });
+    }, _this.rowDeleted = function (row) {
+      if (confirm("Вы уверены, что хотите удалить?")) {
+        var updData = _this.state.items;
+        updData.splice(row, 1);
+        _this.setState({ items: updData, isEditItem: false, isNewItem: false, activeRow: null, activeItem: null });
+      }
+    }, _this.newItem = function () {
+      _this.setState({ activeRow: null, activeItem: null, isNewItem: true, isEditItem: false });
     }, _temp), _possibleConstructorReturn(_this, _ret);
   }
 
@@ -18858,16 +18874,19 @@ var InternetShop = function (_React$Component) {
     value: function render() {
       var _this2 = this;
 
+      //var newArr = this.props.items[this.state.activeItem].slice();
       var itemsCode = this.props.items.map(function (v, idx) {
         return _react2.default.createElement(_ItemShop2.default, { key: idx,
           row: idx,
           text: v.title, cost: v.cost, code: v.id_item,
           description: v.description,
           activeRow: _this2.state.activeRow,
-          cbSelected: _this2.rowSelected
+          cbSelected: _this2.rowSelected,
+          cbEdited: _this2.rowEdited,
+          cbDeleted: _this2.rowDeleted
         });
       });
-
+      //console.log(this.props.items[this.state.activeItem]);
       return _react2.default.createElement(
         'div',
         null,
@@ -18881,9 +18900,34 @@ var InternetShop = function (_React$Component) {
             _react2.default.createElement(
               'tbody',
               null,
-              itemsCode
+              itemsCode,
+              !this.state.isNewItem && _react2.default.createElement(
+                'tr',
+                null,
+                _react2.default.createElement(
+                  'td',
+                  { colSpan: '5' },
+                  _react2.default.createElement(
+                    'button',
+                    { onClick: this.newItem },
+                    '\u041D\u043E\u0432\u044B\u0439 \u0442\u043E\u0432\u0430\u0440'
+                  )
+                )
+              )
             )
-          )
+          ),
+          (this.state.activeRow || this.state.isNewItem) &&
+          // <div>
+          // <input value={this.props.items[this.state.activeItem].title} />
+          //</div>
+          _react2.default.createElement(_ViewBlock2.default, {
+            items: this.props.items,
+            isNewItem: this.state.isNewItem,
+            activeItem: this.state.activeItem,
+            isEditItem: this.state.isEditItem,
+            headers: this.props.headers,
+            cbCancel: this.blockCancel
+          })
         )
       )
       /*<div className='VotesBlock'>
@@ -18926,13 +18970,13 @@ exports.default = InternetShop;
 
 
 
-var emptyFunction = __webpack_require__(6);
-var invariant = __webpack_require__(5);
+var emptyFunction = __webpack_require__(7);
+var invariant = __webpack_require__(6);
 var warning = __webpack_require__(11);
 var assign = __webpack_require__(38);
 
-var ReactPropTypesSecret = __webpack_require__(7);
-var checkPropTypes = __webpack_require__(4);
+var ReactPropTypesSecret = __webpack_require__(8);
+var checkPropTypes = __webpack_require__(5);
 
 module.exports = function(isValidElement, throwOnDirectAccess) {
   /* global Symbol */
@@ -19573,9 +19617,9 @@ module.exports = shouldUseNative() ? Object.assign : function (target, source) {
 
 
 
-var emptyFunction = __webpack_require__(6);
-var invariant = __webpack_require__(5);
-var ReactPropTypesSecret = __webpack_require__(7);
+var emptyFunction = __webpack_require__(7);
+var invariant = __webpack_require__(6);
+var ReactPropTypesSecret = __webpack_require__(8);
 
 module.exports = function() {
   function shim(props, propName, componentName, location, propFullName, secret) {
@@ -19647,7 +19691,7 @@ var _react = __webpack_require__(1);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _propTypes = __webpack_require__(8);
+var _propTypes = __webpack_require__(3);
 
 var _propTypes2 = _interopRequireDefault(_propTypes);
 
@@ -19722,7 +19766,7 @@ var _react = __webpack_require__(1);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _propTypes = __webpack_require__(8);
+var _propTypes = __webpack_require__(3);
 
 var _propTypes2 = _interopRequireDefault(_propTypes);
 
@@ -19752,29 +19796,33 @@ var ItemShop = function (_React$Component) {
 
     return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = ItemShop.__proto__ || Object.getPrototypeOf(ItemShop)).call.apply(_ref, [this].concat(args))), _this), _this.rowClicked = function (EO) {
       _this.props.cbSelected(_this.props.code, _this.props.row);
+    }, _this.editClicked = function (EO) {
+      //console.log('a');
+      _this.props.cbEdited(_this.props.code, _this.props.row);
+    }, _this.deleteClicked = function (EO) {
+      _this.props.cbDeleted(_this.props.row);
     }, _temp), _possibleConstructorReturn(_this, _ret);
   }
 
   _createClass(ItemShop, [{
     key: 'render',
     value: function render() {
-      console.log(this.props.row);
       return _react2.default.createElement(
         'tr',
-        { key: this.props.code, onClick: this.rowClicked, className: this.props.code == this.props.activeRow ? 'ItemShop_active' : '' },
+        { key: this.props.code, className: this.props.code == this.props.activeRow ? 'ItemShop_active' : '' },
         _react2.default.createElement(
           'td',
-          { key: '1' },
+          { key: '1', onClick: this.rowClicked },
           this.props.text
         ),
         _react2.default.createElement(
           'td',
-          { key: '2' },
+          { key: '2', onClick: this.rowClicked },
           this.props.description
         ),
         _react2.default.createElement(
           'td',
-          { key: '3' },
+          { key: '3', onClick: this.rowClicked },
           this.props.cost
         ),
         _react2.default.createElement(
@@ -19782,7 +19830,7 @@ var ItemShop = function (_React$Component) {
           { key: '4' },
           _react2.default.createElement(
             'a',
-            null,
+            { onClick: this.editClicked },
             'edit'
           )
         ),
@@ -19791,7 +19839,7 @@ var ItemShop = function (_React$Component) {
           { key: '5' },
           _react2.default.createElement(
             'a',
-            null,
+            { onClick: this.deleteClicked },
             'delete'
           )
         )
@@ -19809,7 +19857,9 @@ ItemShop.propTypes = {
   text: _propTypes2.default.string.isRequired,
   description: _propTypes2.default.string.isRequired,
   cbSelected: _propTypes2.default.func.isRequired,
-  activeRow: _propTypes2.default.number
+  activeRow: _propTypes2.default.number,
+  cbEdited: _propTypes2.default.func.isRequired,
+  cbDeleted: _propTypes2.default.func.isRequired
 };
 exports.default = ItemShop;
 
@@ -19821,6 +19871,190 @@ exports.default = ItemShop;
 
 /***/ }),
 /* 45 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(1);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _propTypes = __webpack_require__(3);
+
+var _propTypes2 = _interopRequireDefault(_propTypes);
+
+__webpack_require__(46);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var ViewBlock = function (_React$Component) {
+  _inherits(ViewBlock, _React$Component);
+
+  function ViewBlock() {
+    var _ref;
+
+    var _temp, _this, _ret;
+
+    _classCallCheck(this, ViewBlock);
+
+    for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
+      args[_key] = arguments[_key];
+    }
+
+    return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = ViewBlock.__proto__ || Object.getPrototypeOf(ViewBlock)).call.apply(_ref, [this].concat(args))), _this), _this.state = {
+      items: _this.props.items,
+      title: _this.props.items[_this.props.activeItem].title
+
+    }, _this.answerClicked = function (EO) {
+      console.log('a');
+    }, _this.clickCancel = function (EO) {
+      _this.props.cbCancel();
+    }, _temp), _possibleConstructorReturn(_this, _ret);
+  }
+
+  _createClass(ViewBlock, [{
+    key: 'render',
+
+
+    //updateTitleValue = (EO) => {
+    //this.setState({inputValue: evt.target.value});
+    // }
+
+
+    value: function render() {
+      console.log(this.props.isEditItem);
+      return _react2.default.createElement(
+        'div',
+        { className: 'viewBlock' },
+        !this.props.isEditItem && !this.props.isNewItem ? _react2.default.createElement(
+          'div',
+          null,
+          _react2.default.createElement(
+            'div',
+            null,
+            _react2.default.createElement(
+              'span',
+              null,
+              this.props.headers[0],
+              ': '
+            ),
+            this.props.items[this.props.activeItem].title
+          ),
+          _react2.default.createElement(
+            'div',
+            null,
+            _react2.default.createElement(
+              'span',
+              null,
+              this.props.headers[1],
+              ': '
+            ),
+            this.props.items[this.props.activeItem].description
+          ),
+          _react2.default.createElement(
+            'div',
+            null,
+            _react2.default.createElement(
+              'span',
+              null,
+              this.props.headers[2],
+              ': '
+            ),
+            this.props.items[this.props.activeItem].cost
+          )
+        ) : _react2.default.createElement(
+          'div',
+          null,
+          _react2.default.createElement(
+            'div',
+            null,
+            _react2.default.createElement(
+              'span',
+              null,
+              this.props.headers[0],
+              ': '
+            ),
+            _react2.default.createElement('input', { type: 'text', value: !this.props.isNewItem ? this.props.items[this.props.activeItem].title : '' })
+          ),
+          _react2.default.createElement(
+            'div',
+            null,
+            _react2.default.createElement(
+              'span',
+              null,
+              this.props.headers[1],
+              ': '
+            ),
+            _react2.default.createElement('input', { type: 'text', value: !this.props.isNewItem ? this.props.items[this.props.activeItem].description : '' })
+          ),
+          _react2.default.createElement(
+            'div',
+            null,
+            _react2.default.createElement(
+              'span',
+              null,
+              this.props.headers[2],
+              ': '
+            ),
+            _react2.default.createElement('input', { type: 'text', value: !this.props.isNewItem ? this.props.items[this.props.activeItem].cost : '' })
+          ),
+          _react2.default.createElement(
+            'div',
+            null,
+            _react2.default.createElement(
+              'button',
+              null,
+              this.props.isNewItem ? 'Добавить' : 'Редатировать'
+            ),
+            _react2.default.createElement(
+              'button',
+              { onClick: this.clickCancel },
+              '\u041E\u0442\u043C\u0435\u043D\u0438\u0442\u044C'
+            )
+          )
+        )
+      );
+    }
+  }]);
+
+  return ViewBlock;
+}(_react2.default.Component);
+
+ViewBlock.propTypes = {
+  isNewItem: _propTypes2.default.bool.isRequired,
+  isEditItem: _propTypes2.default.bool.isRequired,
+  cbCancel: _propTypes2.default.func.isRequired,
+  activeItem: _propTypes2.default.number,
+  items: _propTypes2.default.arrayOf(_propTypes2.default.shape({
+    id_item: _propTypes2.default.number.isRequired,
+    title: _propTypes2.default.string.isRequired,
+    cost: _propTypes2.default.string.isRequired,
+    description: _propTypes2.default.string.isRequired
+  }))
+};
+exports.default = ViewBlock;
+
+/***/ }),
+/* 46 */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 47 */
 /***/ (function(module, exports) {
 
 module.exports = [{"id_item":2,"title":"Товар 1","cost":"2.2","description":"Описание 1"},{"id_item":3,"title":"Товар 2","cost":"5.2","description":"Описание 2"},{"id_item":4,"title":"Товар 3","cost":"356.0","description":"Описание 3"}]
