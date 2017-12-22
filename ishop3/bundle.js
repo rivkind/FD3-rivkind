@@ -18832,13 +18832,30 @@ var InternetShop = function (_React$Component) {
       activeItem: null,
       activeRow: null,
       isDelete: false,
-      activeData: []
+      titleActive: null,
+      descrActive: null,
+      costActive: null
     }, _this.rowSelected = function (code, row) {
-      console.log('выбран ответ с кодом ' + row);
-      _this.setState({ activeRow: code, activeItem: row, isNewItem: false, isEditItem: false });
+      _this.setState({
+        activeRow: code,
+        activeItem: row,
+        isNewItem: false,
+        isEditItem: false,
+        titleActive: _this.state.items[row].title,
+        descrActive: _this.state.items[row].description,
+        costActive: _this.state.items[row].cost
+      });
     }, _this.rowEdited = function (code, row) {
-      _this.setState({ activeRow: code, activeItem: row, isEditItem: true });
-    }, _this.blockCancel = function (code, row) {
+      _this.setState({
+        activeRow: code,
+        activeItem: row,
+        isEditItem: true,
+        isNewItem: false,
+        titleActive: _this.state.items[row].title,
+        descrActive: _this.state.items[row].description,
+        costActive: _this.state.items[row].cost
+      });
+    }, _this.blockCancel = function () {
       _this.setState({ activeRow: null, activeItem: null, isEditItem: false, isNewItem: false });
     }, _this.rowDeleted = function (row) {
       if (confirm("Вы уверены, что хотите удалить?")) {
@@ -18847,35 +18864,39 @@ var InternetShop = function (_React$Component) {
         _this.setState({ items: updData, isEditItem: false, isNewItem: false, activeRow: null, activeItem: null });
       }
     }, _this.newItem = function () {
-      _this.setState({ activeRow: null, activeItem: null, isNewItem: true, isEditItem: false });
+      _this.setState({
+        activeRow: null,
+        activeItem: null,
+        isNewItem: true,
+        isEditItem: false,
+        titleActive: null,
+        descrActive: null,
+        costActive: null
+      });
     }, _temp), _possibleConstructorReturn(_this, _ret);
   }
 
   _createClass(InternetShop, [{
     key: 'render',
 
-    /*
-      vote = () => {
-        console.log('голосование завершено, выбран ответ с кодом '+this.state.selectedAnswerCode);
-    
-        this.props.answers.forEach( answer => {
-          if ( answer.code==this.state.selectedAnswerCode )
-            answer.count++;
-        } );
-    
-        this.setState( {workMode:2} );
+
+    /*blockSubmit = () => {
+      if(this.state.isNewItem){
+        let newArr = [...this.state.items,this.state.activeData];
+       // this.setState({items:newArr,activeRow:null, activeItem:null,isNewItem:true});
+      }else{
+        let newArr = [...this.state.items];
+        newArr[this.state.activeItem] = this.state.activeData;
+       // this.setState({items:newArr,activeRow:null, activeItem:null,isEditItem:true});
       }
-    
-      freeAnswerTextChanged = (fat) => { 
-        console.log('VotesBlock: текст свободного ответа изменён - '+fat); 
-        this.setState( {freeanswertext:fat} );
-      }
-    */
+      
+        
+    }*/
+
     value: function render() {
       var _this2 = this;
 
-      //var newArr = this.props.items[this.state.activeItem].slice();
-      var itemsCode = this.props.items.map(function (v, idx) {
+      var itemsCode = this.state.items.map(function (v, idx) {
         return _react2.default.createElement(_ItemShop2.default, { key: idx,
           row: idx,
           text: v.title, cost: v.cost, code: v.id_item,
@@ -18886,7 +18907,6 @@ var InternetShop = function (_React$Component) {
           cbDeleted: _this2.rowDeleted
         });
       });
-      //console.log(this.props.items[this.state.activeItem]);
       return _react2.default.createElement(
         'div',
         null,
@@ -18916,29 +18936,17 @@ var InternetShop = function (_React$Component) {
               )
             )
           ),
-          (this.state.activeRow || this.state.isNewItem) &&
-          // <div>
-          // <input value={this.props.items[this.state.activeItem].title} />
-          //</div>
-          _react2.default.createElement(_ViewBlock2.default, {
-            items: this.props.items,
+          (this.state.activeRow || this.state.isNewItem) && _react2.default.createElement(_ViewBlock2.default, {
+            title: this.state.titleActive,
+            description: this.state.descrActive,
+            cost: this.state.costActive,
             isNewItem: this.state.isNewItem,
-            activeItem: this.state.activeItem,
             isEditItem: this.state.isEditItem,
             headers: this.props.headers,
             cbCancel: this.blockCancel
           })
         )
-      )
-      /*<div className='VotesBlock'>
-        <VotesQuestion question={this.props.question}/>
-        <div className='Answers'>{answersCode}</div>
-        {
-          ((this.state.workMode==1)&&this.state.selectedAnswerCode) &&
-          <input type='button' value='проголосовать' onClick={this.vote} />
-        }
-      </div>*/
-      ;
+      );
     }
   }]);
 
@@ -19797,7 +19805,6 @@ var ItemShop = function (_React$Component) {
     return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = ItemShop.__proto__ || Object.getPrototypeOf(ItemShop)).call.apply(_ref, [this].concat(args))), _this), _this.rowClicked = function (EO) {
       _this.props.cbSelected(_this.props.code, _this.props.row);
     }, _this.editClicked = function (EO) {
-      //console.log('a');
       _this.props.cbEdited(_this.props.code, _this.props.row);
     }, _this.deleteClicked = function (EO) {
       _this.props.cbDeleted(_this.props.row);
@@ -19915,27 +19922,25 @@ var ViewBlock = function (_React$Component) {
     }
 
     return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = ViewBlock.__proto__ || Object.getPrototypeOf(ViewBlock)).call.apply(_ref, [this].concat(args))), _this), _this.state = {
-      items: _this.props.items,
-      title: _this.props.items[_this.props.activeItem].title
-
-    }, _this.answerClicked = function (EO) {
-      console.log('a');
+      title: _this.props.title,
+      description: _this.props.description,
+      cost: _this.props.cost
     }, _this.clickCancel = function (EO) {
       _this.props.cbCancel();
+    }, _this.chTitle = function (EO) {
+      _this.setState({ title: EO.target.value });
+    }, _this.chDescr = function (EO) {
+      _this.setState({ description: EO.target.value });
+    }, _this.chCost = function (EO) {
+      _this.setState({ cost: EO.target.value });
     }, _temp), _possibleConstructorReturn(_this, _ret);
   }
 
   _createClass(ViewBlock, [{
     key: 'render',
-
-
-    //updateTitleValue = (EO) => {
-    //this.setState({inputValue: evt.target.value});
-    // }
-
-
     value: function render() {
-      console.log(this.props.isEditItem);
+      console.log("props - " + this.props.title);
+      console.log("state - " + this.state.title);
       return _react2.default.createElement(
         'div',
         { className: 'viewBlock' },
@@ -19951,7 +19956,7 @@ var ViewBlock = function (_React$Component) {
               this.props.headers[0],
               ': '
             ),
-            this.props.items[this.props.activeItem].title
+            this.state.title
           ),
           _react2.default.createElement(
             'div',
@@ -19962,7 +19967,7 @@ var ViewBlock = function (_React$Component) {
               this.props.headers[1],
               ': '
             ),
-            this.props.items[this.props.activeItem].description
+            this.state.description
           ),
           _react2.default.createElement(
             'div',
@@ -19973,7 +19978,7 @@ var ViewBlock = function (_React$Component) {
               this.props.headers[2],
               ': '
             ),
-            this.props.items[this.props.activeItem].cost
+            this.state.cost
           )
         ) : _react2.default.createElement(
           'div',
@@ -19987,7 +19992,7 @@ var ViewBlock = function (_React$Component) {
               this.props.headers[0],
               ': '
             ),
-            _react2.default.createElement('input', { type: 'text', value: !this.props.isNewItem ? this.props.items[this.props.activeItem].title : '' })
+            _react2.default.createElement('input', { type: 'text', onChange: this.chTitle, defaultValue: !this.props.isNewItem ? this.state.title : '' })
           ),
           _react2.default.createElement(
             'div',
@@ -19998,7 +20003,7 @@ var ViewBlock = function (_React$Component) {
               this.props.headers[1],
               ': '
             ),
-            _react2.default.createElement('input', { type: 'text', value: !this.props.isNewItem ? this.props.items[this.props.activeItem].description : '' })
+            _react2.default.createElement('input', { type: 'text', onChange: this.chDescr, defaultValue: !this.props.isNewItem ? this.state.description : '' })
           ),
           _react2.default.createElement(
             'div',
@@ -20009,7 +20014,7 @@ var ViewBlock = function (_React$Component) {
               this.props.headers[2],
               ': '
             ),
-            _react2.default.createElement('input', { type: 'text', value: !this.props.isNewItem ? this.props.items[this.props.activeItem].cost : '' })
+            _react2.default.createElement('input', { type: 'text', onChange: this.chCost, defaultValue: !this.props.isNewItem ? this.state.cost : '' })
           ),
           _react2.default.createElement(
             'div',
@@ -20017,12 +20022,12 @@ var ViewBlock = function (_React$Component) {
             _react2.default.createElement(
               'button',
               null,
-              this.props.isNewItem ? 'Добавить' : 'Редатировать'
+              this.props.isNewItem ? 'добавить' : 'сохранить'
             ),
             _react2.default.createElement(
               'button',
               { onClick: this.clickCancel },
-              '\u041E\u0442\u043C\u0435\u043D\u0438\u0442\u044C'
+              '\u043E\u0442\u043C\u0435\u043D\u0438\u0442\u044C'
             )
           )
         )
@@ -20037,13 +20042,9 @@ ViewBlock.propTypes = {
   isNewItem: _propTypes2.default.bool.isRequired,
   isEditItem: _propTypes2.default.bool.isRequired,
   cbCancel: _propTypes2.default.func.isRequired,
-  activeItem: _propTypes2.default.number,
-  items: _propTypes2.default.arrayOf(_propTypes2.default.shape({
-    id_item: _propTypes2.default.number.isRequired,
-    title: _propTypes2.default.string.isRequired,
-    cost: _propTypes2.default.string.isRequired,
-    description: _propTypes2.default.string.isRequired
-  }))
+  title: _propTypes2.default.string,
+  cost: _propTypes2.default.string,
+  description: _propTypes2.default.string
 };
 exports.default = ViewBlock;
 

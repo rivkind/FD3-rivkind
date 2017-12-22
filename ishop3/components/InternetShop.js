@@ -28,18 +28,36 @@ class InternetShop extends React.Component {
     activeItem: null,
     activeRow: null,
     isDelete:false,
-    activeData: [],
+    titleActive: null,
+    descrActive: null,
+    costActive: null,
   }
 
   rowSelected = (code,row) => {
-    this.setState( {activeRow:code, activeItem:row,isNewItem:false,isEditItem:false} );
+    this.setState( {
+      activeRow:code, 
+      activeItem:row,
+      isNewItem:false,
+      isEditItem:false,
+      titleActive:this.state.items[row].title,
+      descrActive:this.state.items[row].description,
+      costActive:this.state.items[row].cost,
+    } );
   }
 
   rowEdited = (code,row) => {
-    this.setState( {activeRow:code, activeItem:row,isEditItem:true} );
+    this.setState( {
+      activeRow:code, 
+      activeItem:row,
+      isEditItem:true,
+      isNewItem:false,
+      titleActive:this.state.items[row].title,
+      descrActive:this.state.items[row].description,
+      costActive:this.state.items[row].cost,
+    } );
   }
 
-  blockCancel = (code,row) => {
+  blockCancel = () => {
     this.setState( {activeRow:null, activeItem:null,isEditItem:false,isNewItem:false} );
   }
 
@@ -52,11 +70,35 @@ class InternetShop extends React.Component {
   }
 
   newItem = () => {
-    this.setState( {activeRow:null, activeItem:null,isNewItem:true,isEditItem:false} );
+    this.setState( {
+      activeRow:null, 
+      activeItem:null,
+      isNewItem:true,
+      isEditItem:false,
+      titleActive:null,
+      descrActive:null,
+      costActive:null,
+    } );
   }
 
+  
+
+  /*blockSubmit = () => {
+    if(this.state.isNewItem){
+      let newArr = [...this.state.items,this.state.activeData];
+     // this.setState({items:newArr,activeRow:null, activeItem:null,isNewItem:true});
+    }else{
+      let newArr = [...this.state.items];
+      newArr[this.state.activeItem] = this.state.activeData;
+     // this.setState({items:newArr,activeRow:null, activeItem:null,isEditItem:true});
+    }
+    
+
+    
+  }*/
+
   render() {
-    let itemsCode = this.props.items.map( (v,idx) =>
+    let itemsCode = this.state.items.map( (v,idx) =>
       <ItemShop key={idx}
         row={idx}
         text={v.title} cost={v.cost} code={v.id_item}
@@ -68,6 +110,7 @@ class InternetShop extends React.Component {
       />
     );
     return (
+      
       <div>
         <div className='mainBlock'>
           <table className='InternetShop'>
@@ -83,9 +126,10 @@ class InternetShop extends React.Component {
           {
             ((this.state.activeRow)||this.state.isNewItem) &&
             <ViewBlock 
-              items={this.props.items} 
+              title={this.state.titleActive} 
+              description={this.state.descrActive}
+              cost={this.state.costActive} 
               isNewItem={this.state.isNewItem}
-              activeItem={this.state.activeItem}
               isEditItem={this.state.isEditItem}
               headers={this.props.headers}
               cbCancel={this.blockCancel}
