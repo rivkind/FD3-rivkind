@@ -28,9 +28,10 @@ class InternetShop extends React.Component {
     activeItem: null,
     activeRow: null,
     isDelete:false,
-    titleActive: null,
-    descrActive: null,
-    costActive: null,
+    titleActive: '',
+    descrActive: '',
+    costActive: '',
+    codeActive: '',
   }
 
   rowSelected = (code,row) => {
@@ -54,11 +55,34 @@ class InternetShop extends React.Component {
       titleActive:this.state.items[row].title,
       descrActive:this.state.items[row].description,
       costActive:this.state.items[row].cost,
+      codeActive:this.state.items[row].id_item,
     } );
   }
 
   blockCancel = () => {
     this.setState( {activeRow:null, activeItem:null,isEditItem:false,isNewItem:false} );
+  }
+
+  blockSubmit = (title,description,cost) => {
+    
+    if(this.state.isNewItem){
+      let max_code = 0;
+      for(let i=0;i<this.state.items.length;i++){
+        if(max_code<this.state.items[i].id_item){max_code = this.state.items[i].id_item;}
+      }
+      max_code++;
+      let newData = {id_item:max_code,title:title,description:description,cost:cost};
+      let newArr = [...this.state.items,newData];
+      this.setState({items:newArr,activeRow:null, activeItem:null,isNewItem:false,title:null,cost:null,description:null});
+    }else{
+      let newData = {id_item:this.state.codeActive,title:title,description:description,cost:cost};
+      console.log(newData);
+      let newArr = [...this.state.items];
+      newArr[this.state.activeItem] = newData;
+      console.log(newArr);
+      this.setState({items:newArr,activeRow:null, activeItem:null,isNewItem:false,isEditItem:false,title:null,cost:null,description:null});
+    }
+    //this.setState( {activeRow:null, activeItem:null,isEditItem:false,isNewItem:false} );
   }
 
   rowDeleted = (row) => {
@@ -75,9 +99,9 @@ class InternetShop extends React.Component {
       activeItem:null,
       isNewItem:true,
       isEditItem:false,
-      titleActive:null,
-      descrActive:null,
-      costActive:null,
+      titleActive:'',
+      descrActive:'',
+      costActive:'',
     } );
   }
 
@@ -133,6 +157,7 @@ class InternetShop extends React.Component {
               isEditItem={this.state.isEditItem}
               headers={this.props.headers}
               cbCancel={this.blockCancel}
+              cbSubmit={this.blockSubmit}
              />
           }
         </div>

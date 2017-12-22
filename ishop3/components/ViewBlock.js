@@ -9,6 +9,7 @@ class ViewBlock extends React.Component {
     isNewItem: PropTypes.bool.isRequired,
     isEditItem: PropTypes.bool.isRequired,
     cbCancel: PropTypes.func.isRequired,
+    cbSubmit: PropTypes.func.isRequired,
     title: PropTypes.string,
     cost: PropTypes.string,
     description: PropTypes.string,
@@ -18,6 +19,9 @@ class ViewBlock extends React.Component {
     title: this.props.title,
     description: this.props.description,
     cost: this.props.cost,
+    errTitle: false,
+    errDescr: false,
+    errCost: false,
   }
   
 
@@ -26,16 +30,25 @@ class ViewBlock extends React.Component {
     this.props.cbCancel();
   }
 
+  clickSubmit = (EO) => {
+    if(this.state.title==''){this.setState({errTitle:true,});}
+    if(this.state.description==''){this.setState({errDescr:true,});}
+    if(this.state.cost==''){this.setState({errCost:true,});}
+    if(this.state.title && this.state.description && this.state.cost){
+      this.props.cbSubmit(this.state.title,this.state.description,this.state.cost);
+    }
+  }
+
   chTitle = (EO) => {
-    this.setState({title: EO.target.value});
+    this.setState({title: EO.target.value,errTitle:false,});
   }
 
   chDescr = (EO) => {
-    this.setState({description: EO.target.value});
+    this.setState({description: EO.target.value,errDescr:false,});
   }
 
   chCost = (EO) => {
-    this.setState({cost: EO.target.value});
+    this.setState({cost: EO.target.value,errCost:false});
   }
 
   render() {
@@ -53,10 +66,31 @@ class ViewBlock extends React.Component {
         </div>
       :
         <div>
-          <div><span>{this.props.headers[0]}: </span><input type="text" onChange={this.chTitle} defaultValue={!this.props.isNewItem?this.state.title:''} /></div>
-          <div><span>{this.props.headers[1]}: </span><input type="text" onChange={this.chDescr} defaultValue={!this.props.isNewItem?this.state.description:''} /></div>
-          <div><span>{this.props.headers[2]}: </span><input type="text" onChange={this.chCost} defaultValue={!this.props.isNewItem?this.state.cost:''} /></div>
-          <div><button>{(this.props.isNewItem)?'добавить':'сохранить'}</button><button onClick={this.clickCancel}>отменить</button></div>
+          <div>
+            <span>{this.props.headers[0]}: </span>
+            <input type="text" onChange={this.chTitle} defaultValue={!this.props.isNewItem?this.state.title:''} />
+            { 
+            (this.state.errTitle) &&
+            <span className="err">Ошибка в поле Title</span>
+            }
+          </div>
+          <div>
+            <span>{this.props.headers[1]}: </span>
+            <input type="text" onChange={this.chDescr} defaultValue={!this.props.isNewItem?this.state.description:''} />
+            { 
+            (this.state.errDescr) &&
+            <span className="err">Ошибка в поле Description</span>
+            }
+          </div>
+          <div>
+            <span>{this.props.headers[2]}: </span>
+            <input type="text" onChange={this.chCost} defaultValue={!this.props.isNewItem?this.state.cost:''} />
+            { 
+            (this.state.errCost) &&
+            <span className="err">Ошибка в поле Cost</span>
+            }
+          </div>
+          <div><button onClick={this.clickSubmit}>{(this.props.isNewItem)?'добавить':'сохранить'}</button><button onClick={this.clickCancel}>отменить</button></div>
         </div> 
       }
       </div>

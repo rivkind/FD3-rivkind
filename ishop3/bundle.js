@@ -18805,6 +18805,8 @@ var _ViewBlock2 = _interopRequireDefault(_ViewBlock);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } else { return Array.from(arr); } }
+
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
@@ -18832,9 +18834,10 @@ var InternetShop = function (_React$Component) {
       activeItem: null,
       activeRow: null,
       isDelete: false,
-      titleActive: null,
-      descrActive: null,
-      costActive: null
+      titleActive: '',
+      descrActive: '',
+      costActive: '',
+      codeActive: ''
     }, _this.rowSelected = function (code, row) {
       _this.setState({
         activeRow: code,
@@ -18853,10 +18856,33 @@ var InternetShop = function (_React$Component) {
         isNewItem: false,
         titleActive: _this.state.items[row].title,
         descrActive: _this.state.items[row].description,
-        costActive: _this.state.items[row].cost
+        costActive: _this.state.items[row].cost,
+        codeActive: _this.state.items[row].id_item
       });
     }, _this.blockCancel = function () {
       _this.setState({ activeRow: null, activeItem: null, isEditItem: false, isNewItem: false });
+    }, _this.blockSubmit = function (title, description, cost) {
+
+      if (_this.state.isNewItem) {
+        var max_code = 0;
+        for (var i = 0; i < _this.state.items.length; i++) {
+          if (max_code < _this.state.items[i].id_item) {
+            max_code = _this.state.items[i].id_item;
+          }
+        }
+        max_code++;
+        var newData = { id_item: max_code, title: title, description: description, cost: cost };
+        var newArr = [].concat(_toConsumableArray(_this.state.items), [newData]);
+        _this.setState({ items: newArr, activeRow: null, activeItem: null, isNewItem: false, title: null, cost: null, description: null });
+      } else {
+        var _newData = { id_item: _this.state.codeActive, title: title, description: description, cost: cost };
+        console.log(_newData);
+        var _newArr = [].concat(_toConsumableArray(_this.state.items));
+        _newArr[_this.state.activeItem] = _newData;
+        console.log(_newArr);
+        _this.setState({ items: _newArr, activeRow: null, activeItem: null, isNewItem: false, isEditItem: false, title: null, cost: null, description: null });
+      }
+      //this.setState( {activeRow:null, activeItem:null,isEditItem:false,isNewItem:false} );
     }, _this.rowDeleted = function (row) {
       if (confirm("Вы уверены, что хотите удалить?")) {
         var updData = _this.state.items;
@@ -18869,9 +18895,9 @@ var InternetShop = function (_React$Component) {
         activeItem: null,
         isNewItem: true,
         isEditItem: false,
-        titleActive: null,
-        descrActive: null,
-        costActive: null
+        titleActive: '',
+        descrActive: '',
+        costActive: ''
       });
     }, _temp), _possibleConstructorReturn(_this, _ret);
   }
@@ -18943,7 +18969,8 @@ var InternetShop = function (_React$Component) {
             isNewItem: this.state.isNewItem,
             isEditItem: this.state.isEditItem,
             headers: this.props.headers,
-            cbCancel: this.blockCancel
+            cbCancel: this.blockCancel,
+            cbSubmit: this.blockSubmit
           })
         )
       );
@@ -19924,15 +19951,31 @@ var ViewBlock = function (_React$Component) {
     return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = ViewBlock.__proto__ || Object.getPrototypeOf(ViewBlock)).call.apply(_ref, [this].concat(args))), _this), _this.state = {
       title: _this.props.title,
       description: _this.props.description,
-      cost: _this.props.cost
+      cost: _this.props.cost,
+      errTitle: false,
+      errDescr: false,
+      errCost: false
     }, _this.clickCancel = function (EO) {
       _this.props.cbCancel();
+    }, _this.clickSubmit = function (EO) {
+      if (_this.state.title == '') {
+        _this.setState({ errTitle: true });
+      }
+      if (_this.state.description == '') {
+        _this.setState({ errDescr: true });
+      }
+      if (_this.state.cost == '') {
+        _this.setState({ errCost: true });
+      }
+      if (_this.state.title && _this.state.description && _this.state.cost) {
+        _this.props.cbSubmit(_this.state.title, _this.state.description, _this.state.cost);
+      }
     }, _this.chTitle = function (EO) {
-      _this.setState({ title: EO.target.value });
+      _this.setState({ title: EO.target.value, errTitle: false });
     }, _this.chDescr = function (EO) {
-      _this.setState({ description: EO.target.value });
+      _this.setState({ description: EO.target.value, errDescr: false });
     }, _this.chCost = function (EO) {
-      _this.setState({ cost: EO.target.value });
+      _this.setState({ cost: EO.target.value, errCost: false });
     }, _temp), _possibleConstructorReturn(_this, _ret);
   }
 
@@ -19992,7 +20035,12 @@ var ViewBlock = function (_React$Component) {
               this.props.headers[0],
               ': '
             ),
-            _react2.default.createElement('input', { type: 'text', onChange: this.chTitle, defaultValue: !this.props.isNewItem ? this.state.title : '' })
+            _react2.default.createElement('input', { type: 'text', onChange: this.chTitle, defaultValue: !this.props.isNewItem ? this.state.title : '' }),
+            this.state.errTitle && _react2.default.createElement(
+              'span',
+              { className: 'err' },
+              '\u041E\u0448\u0438\u0431\u043A\u0430 \u0432 \u043F\u043E\u043B\u0435 Title'
+            )
           ),
           _react2.default.createElement(
             'div',
@@ -20003,7 +20051,12 @@ var ViewBlock = function (_React$Component) {
               this.props.headers[1],
               ': '
             ),
-            _react2.default.createElement('input', { type: 'text', onChange: this.chDescr, defaultValue: !this.props.isNewItem ? this.state.description : '' })
+            _react2.default.createElement('input', { type: 'text', onChange: this.chDescr, defaultValue: !this.props.isNewItem ? this.state.description : '' }),
+            this.state.errDescr && _react2.default.createElement(
+              'span',
+              { className: 'err' },
+              '\u041E\u0448\u0438\u0431\u043A\u0430 \u0432 \u043F\u043E\u043B\u0435 Description'
+            )
           ),
           _react2.default.createElement(
             'div',
@@ -20014,14 +20067,19 @@ var ViewBlock = function (_React$Component) {
               this.props.headers[2],
               ': '
             ),
-            _react2.default.createElement('input', { type: 'text', onChange: this.chCost, defaultValue: !this.props.isNewItem ? this.state.cost : '' })
+            _react2.default.createElement('input', { type: 'text', onChange: this.chCost, defaultValue: !this.props.isNewItem ? this.state.cost : '' }),
+            this.state.errCost && _react2.default.createElement(
+              'span',
+              { className: 'err' },
+              '\u041E\u0448\u0438\u0431\u043A\u0430 \u0432 \u043F\u043E\u043B\u0435 Cost'
+            )
           ),
           _react2.default.createElement(
             'div',
             null,
             _react2.default.createElement(
               'button',
-              null,
+              { onClick: this.clickSubmit },
               this.props.isNewItem ? 'добавить' : 'сохранить'
             ),
             _react2.default.createElement(
@@ -20042,6 +20100,7 @@ ViewBlock.propTypes = {
   isNewItem: _propTypes2.default.bool.isRequired,
   isEditItem: _propTypes2.default.bool.isRequired,
   cbCancel: _propTypes2.default.func.isRequired,
+  cbSubmit: _propTypes2.default.func.isRequired,
   title: _propTypes2.default.string,
   cost: _propTypes2.default.string,
   description: _propTypes2.default.string

@@ -16,3 +16,7 @@ td{
 .viewBlock span{
 font-weight: bold;
 }
+.err{
+    font-weight: normal; 
+    color: red; 
+}
