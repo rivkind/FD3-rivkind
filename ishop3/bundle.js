@@ -18963,9 +18963,9 @@ var InternetShop = function (_React$Component) {
             )
           ),
           (this.state.activeRow || this.state.isNewItem) && _react2.default.createElement(_ViewBlock2.default, {
-            title: this.state.titleActive,
-            description: this.state.descrActive,
-            cost: this.state.costActive,
+            title: this.state.titleActive.bind(),
+            description: this.state.descrActive.bind(),
+            cost: this.state.costActive.bind(),
             isNewItem: this.state.isNewItem,
             isEditItem: this.state.isEditItem,
             headers: this.props.headers,
