@@ -60,15 +60,15 @@ class ViewBlock extends React.Component {
       (!this.props.isEditItem&&!this.props.isNewItem)
       ?
         <div>
-          <div><span>{this.props.headers[0]}: </span>{this.state.title}</div>
-          <div><span>{this.props.headers[1]}: </span>{this.state.description}</div>
-          <div><span>{this.props.headers[2]}: </span>{this.state.cost}</div>
+          <div><span>{this.props.headers[0]}: </span>{this.props.title}</div>
+          <div><span>{this.props.headers[1]}: </span>{this.props.description}</div>
+          <div><span>{this.props.headers[2]}: </span>{this.props.cost}</div>
         </div>
       :
         <div>
           <div>
             <span>{this.props.headers[0]}: </span>
-            <input type="text" onChange={this.chTitle} defaultValue={!this.props.isNewItem?this.state.title:''} />
+            <input type="text" onChange={this.chTitle} defaultValue={!this.props.isNewItem?this.props.title:''} />
             { 
             (this.state.errTitle) &&
             <span className="err">Ошибка в поле Title</span>
@@ -76,7 +76,7 @@ class ViewBlock extends React.Component {
           </div>
           <div>
             <span>{this.props.headers[1]}: </span>
-            <input type="text" onChange={this.chDescr} defaultValue={!this.props.isNewItem?this.state.description:''} />
+            <input type="text" onChange={this.chDescr} defaultValue={!this.props.isNewItem?this.props.description:''} />
             { 
             (this.state.errDescr) &&
             <span className="err">Ошибка в поле Description</span>
@@ -84,7 +84,7 @@ class ViewBlock extends React.Component {
           </div>
           <div>
             <span>{this.props.headers[2]}: </span>
-            <input type="text" onChange={this.chCost} defaultValue={!this.props.isNewItem?this.state.cost:''} />
+            <input type="text" onChange={this.chCost} defaultValue={!this.props.isNewItem?this.props.cost:''} />
             { 
             (this.state.errCost) &&
             <span className="err">Ошибка в поле Cost</span>

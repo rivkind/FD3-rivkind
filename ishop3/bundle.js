@@ -19999,7 +19999,7 @@ var ViewBlock = function (_React$Component) {
               this.props.headers[0],
               ': '
             ),
-            this.state.title
+            this.props.title
           ),
           _react2.default.createElement(
             'div',
@@ -20010,7 +20010,7 @@ var ViewBlock = function (_React$Component) {
               this.props.headers[1],
               ': '
             ),
-            this.state.description
+            this.props.description
           ),
           _react2.default.createElement(
             'div',
@@ -20021,7 +20021,7 @@ var ViewBlock = function (_React$Component) {
               this.props.headers[2],
               ': '
             ),
-            this.state.cost
+            this.props.cost
           )
         ) : _react2.default.createElement(
           'div',
@@ -20035,7 +20035,7 @@ var ViewBlock = function (_React$Component) {
               this.props.headers[0],
               ': '
             ),
-            _react2.default.createElement('input', { type: 'text', onChange: this.chTitle, defaultValue: !this.props.isNewItem ? this.state.title : '' }),
+            _react2.default.createElement('input', { type: 'text', onChange: this.chTitle, defaultValue: !this.props.isNewItem ? this.props.title : '' }),
             this.state.errTitle && _react2.default.createElement(
               'span',
               { className: 'err' },
@@ -20051,7 +20051,7 @@ var ViewBlock = function (_React$Component) {
               this.props.headers[1],
               ': '
             ),
-            _react2.default.createElement('input', { type: 'text', onChange: this.chDescr, defaultValue: !this.props.isNewItem ? this.state.description : '' }),
+            _react2.default.createElement('input', { type: 'text', onChange: this.chDescr, defaultValue: !this.props.isNewItem ? this.props.description : '' }),
             this.state.errDescr && _react2.default.createElement(
               'span',
               { className: 'err' },
@@ -20067,7 +20067,7 @@ var ViewBlock = function (_React$Component) {
               this.props.headers[2],
               ': '
             ),
-            _react2.default.createElement('input', { type: 'text', onChange: this.chCost, defaultValue: !this.props.isNewItem ? this.state.cost : '' }),
+            _react2.default.createElement('input', { type: 'text', onChange: this.chCost, defaultValue: !this.props.isNewItem ? this.props.cost : '' }),
             this.state.errCost && _react2.default.createElement(
               'span',
               { className: 'err' },
