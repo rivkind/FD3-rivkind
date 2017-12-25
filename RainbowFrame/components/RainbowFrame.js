@@ -7,20 +7,16 @@ import ColorFrame from './ColorFrame';
 
 class RainbowFrame extends React.Component {
 
-    shuffle = (arr) => {
-        return arr.sort(function() {return 0.5 - Math.random()});
-    }
+  static propTypes = {
+    colors:PropTypes.array.isRequired,
+  };
     
     render() {
 
-    let newArrColors = this.shuffle(this.props.colors);
+    let childCode = this.props.children;
 
-    let childCode = <div className='Answers'>{this.props.text}</div>;
-
-    for(let i=0; i<newArrColors.length; i++){
-        childCode = <ColorFrame color={this.props.colors[i]}>
-                        {childCode}
-                    </ColorFrame>
+    for ( let v of this.props.colors ) {
+        childCode = <ColorFrame color={v}>{childCode}</ColorFrame>
     }
     return (
       <div>

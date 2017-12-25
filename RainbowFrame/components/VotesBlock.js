@@ -64,12 +64,12 @@ class VotesBlock extends React.Component {
       />
     );
 
-    var colorBlock=<RainbowFrame colors={this.props.colors} text={answersCode} />;
-
     return (
       <div className='VotesBlock'>
         <VotesQuestion question={this.props.question}/>
-        {colorBlock}
+        <RainbowFrame colors={this.props.colors}>
+          <div className='Answers'>{answersCode}</div>
+        </RainbowFrame>
         {
           ((this.state.workMode==1)&&this.state.selectedAnswerCode) &&
           <input type='button' value='проголосовать' onClick={this.vote} />
