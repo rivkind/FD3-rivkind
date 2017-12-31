@@ -106,25 +106,6 @@ class MobileCompany extends React.PureComponent {
         }
       }
     } );
-
-
-
-    /*let newClients=[...this.state.clients]; // копия самого массива клиентов
-    newClients.forEach( (c,i) => {
-      if ( c.id==data.id ) {
-        let oldActive=c.balance>=0;
-        let newBalance = (data.balance+c.balance);
-        let newActive=newBalance>=0;
-        
-        let newClient={...c}; // копия хэша изменившегося клиента
-        newClient.balance=newBalance;
-        newClients[i]=newClient;
-        if(oldActive!=newActive){
-          let newClientsFilter = this.dataFilter(newClients,this.state.name);
-          this.setState({clients:newClients,clients_view:newClientsFilter});
-        }else this.setState({clients:newClients});
-      }
-    } );*/
   };
 
   setFilter = (EO) => {
