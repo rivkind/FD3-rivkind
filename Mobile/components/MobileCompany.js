@@ -86,12 +86,36 @@ class MobileCompany extends React.PureComponent {
   }
 
   setBalance = (data) => {
-    let newClients=[...this.state.clients]; // копия самого массива клиентов
+    
+    this.state.clients.forEach( (c,i) => {
+      if ( c.id==data.id ) {
+        let oldActive=c.balance>=0;
+        let newBalance = (data.balance+c.balance);
+        let newActive=newBalance>=0;
+        if(oldActive!=newActive){
+          let newClients=[...this.state.clients];
+          let newClient={...c}; // копия хэша изменившегося клиента
+          newClient.balance=newBalance;
+          newClients[i]=newClient;
+          let newClientsFilter = this.dataFilter(newClients,this.state.name);
+          this.setState({clients:newClients,clients_view:newClientsFilter});
+        }else{
+          let newClients=this.state.clients;
+          newClients[i].balance=newBalance;
+          this.setState({clients:newClients});
+        }
+      }
+    } );
+
+
+
+    /*let newClients=[...this.state.clients]; // копия самого массива клиентов
     newClients.forEach( (c,i) => {
       if ( c.id==data.id ) {
         let oldActive=c.balance>=0;
         let newBalance = (data.balance+c.balance);
         let newActive=newBalance>=0;
+        
         let newClient={...c}; // копия хэша изменившегося клиента
         newClient.balance=newBalance;
         newClients[i]=newClient;
@@ -100,7 +124,7 @@ class MobileCompany extends React.PureComponent {
           this.setState({clients:newClients,clients_view:newClientsFilter});
         }else this.setState({clients:newClients});
       }
-    } );
+    } );*/
   };
 
   setFilter = (EO) => {
