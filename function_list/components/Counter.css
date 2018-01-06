@@ -1,0 +1,9 @@
+.CounterBlock
+{
+    position: fixed;
+    top: 6px;
+    right: 100px;
+    font-size: 11px;
+    color: #fff;
+    
+}

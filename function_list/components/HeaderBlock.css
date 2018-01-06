@@ -1,0 +1,14 @@
+header
+{
+    background: none repeat scroll 0 0 #23A0FF;
+    position: fixed;
+    width: 100%;
+    min-width: 980px;
+    top: 0;
+    z-index: 3;
+    height: 55px;
+}
+.PageLink
+{
+    float: right;
+}

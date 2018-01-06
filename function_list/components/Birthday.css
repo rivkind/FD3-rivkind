@@ -1,0 +1,19 @@
+.BirthdayBlock
+{
+    float: left;
+    height: 100%;
+    margin-left: 15px;
+    margin-right: 15px;
+}
+.BirthdayBlock span {
+    display: inline-block;
+    height: 100%;
+    vertical-align: middle;
+}
+.BirthdayBlock div{
+    display: inline-block;
+    vertical-align: middle;
+ }
+ .BirthdayBlock img{
+    margin-bottom: -5px;
+ }

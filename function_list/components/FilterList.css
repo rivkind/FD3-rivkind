@@ -1,0 +1,26 @@
+.FilterList
+{
+    float: right;
+    margin-top: 34px;
+    margin-right: 10px;
+}
+
+.FilterList img{
+    width: 17px;
+    cursor: pointer;
+}
+.FilterList div{
+    position: fixed;
+    top: 68px;
+    right: 10px;
+    border: 1px solid #add9ed;
+    z-index: 2;
+    background-color: #fff;
+    height: auto;
+    width: 300px;
+    padding: 5px;
+    visibility: hidden;
+}
+.FilterList>div select{
+    width: 285px;
+}

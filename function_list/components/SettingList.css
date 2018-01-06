@@ -1,0 +1,26 @@
+.SettingList
+{
+    float: right;
+    margin-top: 31px;
+    margin-right: 5px;
+}
+
+.SettingList img{
+    width: 22px;
+    cursor: pointer;
+}
+.SettingList div{
+    position: fixed;
+    top: 68px;
+    right: 10px;
+    border: 1px solid #add9ed;
+    z-index: 2;
+    background-color: #fff;
+    height: auto;
+    width: 300px;
+    padding: 5px;
+    visibility: hidden;
+}
+.SettingList>div select{
+    width: 285px;
+}
