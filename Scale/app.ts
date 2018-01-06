@@ -18,7 +18,7 @@ class Scale {
     }
 
     getNameList():void {
-        console.log("Cуммарный вес добавленных элементов:"+this.nameList);
+        console.log("Наименования добавленных элементов:"+this.nameList);
     }
 }
 
