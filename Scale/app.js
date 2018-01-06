@@ -21,7 +21,7 @@ var Scale = /** @class */ (function () {
         console.log("Cуммарный вес добавленных элементов:" + this.sumScale);
     };
     Scale.prototype.getNameList = function () {
-        console.log("Cуммарный вес добавленных элементов:" + this.nameList);
+        console.log("Наименования добавленных элементов:" + this.nameList);
     };
     return Scale;
 }());
