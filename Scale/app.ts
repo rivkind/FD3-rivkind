@@ -1,11 +1,7 @@
 class Scale {
 
-    itemsScale:Array<Product>;
+    itemsScale:Array<Product>=[];
     
-    constructor() {
-        this.itemsScale = [];
-    }
-
     add(_product:Product):void {
         this.itemsScale=[...this.itemsScale,_product]; 
     }
