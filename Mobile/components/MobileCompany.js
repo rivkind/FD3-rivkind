@@ -109,7 +109,6 @@ class MobileCompany extends React.PureComponent {
   };
 
   setFilter = (EO) => {
-    console.log(EO);
     if(EO.target.value!=this.state.name){
       let newClientsFilter = this.dataFilter(this.state.clients,EO.target.value);
       this.setState({name:EO.target.value, clients_view:newClientsFilter});
