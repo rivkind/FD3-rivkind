@@ -17,12 +17,12 @@ var Scale = /** @class */ (function () {
     };
     Scale.prototype.getSumScale = function () {
         var allWeight = 0;
-        this.itemsScale.forEach(function (v) { return allWeight += v.weight; });
+        this.itemsScale.forEach(function (v) { return allWeight += v.getScale(); });
         return allWeight;
     };
     Scale.prototype.getNameList = function () {
         var nameList = [];
-        this.itemsScale.forEach(function (v) { return nameList = nameList.concat([v.name]); });
+        this.itemsScale.forEach(function (v) { return nameList = nameList.concat([v.getName()]); });
         return nameList;
     };
     return Scale;

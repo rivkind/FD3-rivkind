@@ -11,13 +11,13 @@ class Scale {
     }
 
     getSumScale():number {
-        let allWeight=0;
+        let allWeight:number=0;
         this.itemsScale.forEach( v=> allWeight+=v.getScale() )
         return allWeight;
     }
 
     getNameList():Array<string> {
-        let nameList=[];
+        let nameList:Array<string>=[];
         this.itemsScale.forEach( v=> nameList=[...nameList,v.getName()] )
         return nameList;
     }
