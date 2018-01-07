@@ -1,24 +1,25 @@
 class Scale {
 
-    sumScale:number;
-    nameList:Array<string>;
-
+    itemsScale:Array<Product>;
+    
     constructor() {
-        this.sumScale = 0;
-        this.nameList = [];
+        this.itemsScale = [];
     }
 
     add(_product:Product):void {
-        this.sumScale=this.sumScale+_product.getScale();
-        this.nameList=[...this.nameList,_product.getName()];
+        this.itemsScale=[...this.itemsScale,_product]; 
     }
 
-    getSumScale():void {
-        console.log("Cуммарный вес добавленных элементов:"+this.sumScale);
+    getSumScale():number {
+        let allWeight=0;
+        this.itemsScale.forEach( v=> allWeight+=v.getScale() )
+        return allWeight;
     }
 
-    getNameList():void {
-        console.log("Наименования добавленных элементов:"+this.nameList);
+    getNameList():Array<string> {
+        let nameList=[];
+        this.itemsScale.forEach( v=> nameList=[...nameList,v.getName()] )
+        return nameList;
     }
 }
 
@@ -64,8 +65,9 @@ let tomato1:Apple=new Tomato(0.4,"Помидор 1");
 scale.add(apple1);
 scale.add(tomato1);
 
-scale.getSumScale();
-scale.getNameList();
+console.log("Cуммарный вес добавленных элементов:",scale.getSumScale());
+console.log("Наименования добавленных элементов:",scale.getNameList());
+
 
 let apple2:Apple=new Apple(0.5,"Яблоко 2");
 let apple3:Apple=new Apple(0.3,"Яблоко 3");
@@ -76,5 +78,6 @@ scale.add(apple2);
 scale.add(tomato2);
 scale.add(apple3);
 
-scale.getSumScale();
-scale.getNameList();
+
+console.log("Cуммарный вес добавленных элементов:",scale.getSumScale());
+console.log("Наименования добавленных элементов:",scale.getNameList());

@@ -25,6 +25,7 @@ class MobileForm extends React.PureComponent {
       if ( this.newTextRef ) {
         let newText=this.newTextRef.value;
         (newText)?chooseClients.emit('ENameClient',newText):alert('Введите данные');
+        this.newTextRef.value='';
       }
   }
 
