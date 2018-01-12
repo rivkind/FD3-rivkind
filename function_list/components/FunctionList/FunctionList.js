@@ -1,9 +1,8 @@
 ﻿import React from 'react';
-//import PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
 
 
-import HeaderBlock from './HeaderBlock';
-import PagesRouter from '../pages/PagesRouter';
+import HeaderBlock from '../HeaderBlock/HeaderBlock';
 import './FunctionList.css';
 
 class FunctionList extends React.Component {
@@ -17,7 +16,7 @@ class FunctionList extends React.Component {
     return (
       <div>
       <HeaderBlock />
-      <PagesRouter />
+      {this.props.children}
       </div>
     )
     ;

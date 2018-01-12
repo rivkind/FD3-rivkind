@@ -1,0 +1,9 @@
+.LanguageBlock
+{
+    display: inline-block;
+    margin-left: 8px;
+
+}
+.LanguageBlock img{
+    margin-bottom: -7px;
+}

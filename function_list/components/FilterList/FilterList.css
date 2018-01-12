@@ -1,15 +1,15 @@
-.SettingList
+.FilterList
 {
-    float: right;
-    margin-top: 31px;
-    margin-right: 5px;
+    display: inline-block;
+    padding-bottom: 3px;
 }
 
-.SettingList img{
-    width: 22px;
+.FilterList img{
+    width: 18px;
     cursor: pointer;
+     
 }
-.SettingList div{
+.FilterList div{
     position: fixed;
     top: 68px;
     right: 10px;
@@ -21,6 +21,6 @@
     padding: 5px;
     visibility: hidden;
 }
-.SettingList>div select{
+.FilterList>div select{
     width: 285px;
 }

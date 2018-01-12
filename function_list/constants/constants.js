@@ -1,0 +1,5 @@
+const LANGUAGE_CREATE='LANGUAGE_CREATE';
+
+export {
+    LANGUAGE_CREATE,
+}

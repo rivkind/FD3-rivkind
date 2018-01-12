@@ -1,6 +1,6 @@
 import React from 'react';
 
-class Page_Life extends React.PureComponent {
+class PageLife extends React.PureComponent {
           
   render() {
 
@@ -14,4 +14,4 @@ class Page_Life extends React.PureComponent {
 
 }
     
-export default Page_Life;
+export default PageLife;

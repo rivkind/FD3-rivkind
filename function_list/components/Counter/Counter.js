@@ -7,8 +7,8 @@ class Counter extends React.PureComponent {
   render() {
 
     return (
-      <div className='CounterBlock'>
-        Найдено позиций: 35
+      <div className='CounterBlock' title='Найдено записей'>
+        817
       </div>
     );
   }
