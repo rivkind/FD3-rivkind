@@ -1,12 +1,13 @@
 .SettingList
 {
     display: inline-block;
-    margin-right: 5px;
+    margin-right: 8px;
 }
 
 .SettingList img{
     width: 22px;
     cursor: pointer;
+    
 }
 .SettingList div{
     position: fixed;

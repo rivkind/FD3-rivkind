@@ -12,7 +12,7 @@ header
 .HeaderBlockRight
 {
     float: right;
-    padding: 3px 4px;
+    padding: 3px 8px;
     text-align: right;
 }
 .HeaderBlockRightTop{
@@ -21,6 +21,6 @@ header
 }
 .HeaderBlockRightBottom{
     text-align: right;
-    padding-top: 4px;
+    padding: 2px;
     
 }
