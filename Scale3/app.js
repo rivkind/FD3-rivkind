@@ -10,11 +10,11 @@ var __extends = (this && this.__extends) || (function () {
 })();
 var Scale = /** @class */ (function () {
     function Scale(_store) {
-        this.itemsScale = _store;
+        this.Storage = _store;
     }
     Scale.prototype.getSumScale = function () {
         var allWeight = 0;
-        var obj = this.itemsScale;
+        var obj = this.Storage;
         for (var i = 0; i < obj.getCount(); i++) {
             allWeight += obj.getItem(i).getScale();
         }
@@ -22,7 +22,7 @@ var Scale = /** @class */ (function () {
     };
     Scale.prototype.getNameList = function () {
         var nameList = [];
-        var obj = this.itemsScale;
+        var obj = this.Storage;
         for (var i = 0; i < obj.getCount(); i++) {
             nameList.push(obj.getItem(i).getName());
         }

@@ -8,15 +8,15 @@ interface IStorageEngine {
 
 class Scale<StorageEngine extends IStorageEngine> {
 
-    itemsScale: StorageEngine;
+    Storage: StorageEngine;
     
     constructor(_store:StorageEngine) {
-       this.itemsScale= _store;
+       this.Storage= _store;
     }
 
     getSumScale():number {
         let allWeight:number=0;
-        let obj = this.itemsScale;
+        let obj = this.Storage;
         for(let i=0;i<obj.getCount();i++){
             allWeight+=obj.getItem(i).getScale();
         }
@@ -25,7 +25,7 @@ class Scale<StorageEngine extends IStorageEngine> {
 
     getNameList():Array<string> {
         let nameList:Array<string>=[];
-        let obj = this.itemsScale;
+        let obj = this.Storage;
         for(let i=0;i<obj.getCount();i++){
             nameList.push(obj.getItem(i).getName());
         }
