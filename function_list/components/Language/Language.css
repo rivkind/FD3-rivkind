@@ -6,4 +6,5 @@
 }
 .LanguageBlock img{
     margin-bottom: -7px;
+    cursor: pointer;
 }

@@ -18,7 +18,7 @@ class HeaderBlock extends React.Component {
   };
 
   render() {
-
+    console.log('Рендер Шапки');
     return (
       <header>
         <Logo />
