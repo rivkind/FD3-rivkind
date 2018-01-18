@@ -58,28 +58,30 @@ class ScalesStorageEngineArray implements IStorageEngine {
 
 class ScalesStorageEngineLocalStorage implements IStorageEngine {
 
-    items:Array<Product>;
-    
     constructor() {
-        this.items = [];
+        let items = [];
+        let serialItems = JSON.stringify(items);
+        localStorage.setItem("items", serialItems);
     }
     
     addItem(item:Product):void {
-        this.items = JSON.parse(localStorage.getItem("items"));
-        this.items.push(item);
-        let serialItems = JSON.stringify(this.items);
+        let items = JSON.parse(localStorage.getItem("items"));
+        items.push(item);
+        let serialItems = JSON.stringify(items);
         localStorage.setItem("items", serialItems);
     }
 
     getItem(index:number):Product {
-        this.items = JSON.parse(localStorage.getItem("items"));
-        return this.items[index];
+        let items = JSON.parse(localStorage.getItem("items"));
+        
+        let t:Product = new Product(items[index].weight,items[index].name); 
+        return t;
     }
     
 
     getCount():number {
-        this.items = JSON.parse(localStorage.getItem("items"));
-        return this.items.length;
+        let items = JSON.parse(localStorage.getItem("items"));
+        return items.length;
     }
     
 }
