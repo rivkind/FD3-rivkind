@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
 import {default as isoFetch} from 'isomorphic-fetch';
 
-//import { fetchData } from '../../actions/functionlist';
+import { fetchData } from '../../actions/functionlist';
 
 import Spinner from '../Spinner/Spinner';
 import HeaderBlock from '../HeaderBlock/HeaderBlock';
@@ -12,38 +12,47 @@ import './FunctionList.css';
 
 class FunctionList extends React.Component {
 
-  static propTypes = {
-    //employee: PropTypes.any, // передано из Redux
-  };
-
-  
-
-  componentDidMount () {
-    //this.loadData();
-    //this.props.dispatch({type:FETCH_DATA_START});
-    //this.props.dispatch({type:FETCH_DATA_START});
-    //this.props.fetchData();
+  componentWillMount () {
+    this.props.fetchData(this.props.lang);
   }
+
+
  
   render() {
+    if(this.props.title_site) document.title = this.props.title_site;
+
     return (
       <div>
-        
-      <HeaderBlock />
-      {this.props.children}
+      {
+        (this.props.isLoading)
+        ?
+        <Spinner />
+        :
+        null
+      }
+      {
+      (this.props.lang)&&
+      <div>
+        <HeaderBlock />
+        {this.props.children}
       </div>
-    )
-    ;
-
+      }
+      </div>
+    );
   }
-
 }
 
 
 
-//const mapStateToProps = state => ({
- // employee: state.employee,
-//})
+const mapStateToProps = state => ({
+  lang: state.functionlist.lang,
+  isLoading: state.functionlist.isLoading,
+  title_site: state.functionlist.title.titleSite
+})
 
-export default FunctionList;
-//export default connect(mapStateToProps)(FunctionList);
+const mapDispatchToProps = {
+  fetchData
+}
+
+//export default FunctionList;
+export default connect(mapStateToProps, mapDispatchToProps, null, {pure:false})(FunctionList);

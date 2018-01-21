@@ -1,13 +1,12 @@
 import React from 'react';
+import EmployeeList from '../components/EmployeeList/EmployeeList';
 
 class PageLife extends React.PureComponent {
           
   render() {
-
+    //console.log(this.props);
     return (
-      <div>
-        <h1>Life</h1>
-      </div>
+      <EmployeeList company='life' />
     );
     
   }

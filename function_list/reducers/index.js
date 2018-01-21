@@ -2,13 +2,15 @@
 import { routerReducer } from 'react-router-redux';
 
 import languageReducer from "./language";
-import employeeListReducer from "./employeelist";
+import functionListReducer from "./functionlist";
+import settingListReducer from "./settinglist";
+import filterListReducer from "./filterlist";
 
 let combinedReducer=combineReducers({
-    // редьюсер counterButtonReducer отвечает за раздел state под именем counterButton
     routing: routerReducer,
-    language: languageReducer, 
-    employee: employeeListReducer,
+    functionlist: functionListReducer,
+    settinglist: settingListReducer,
+    filterlist: filterListReducer,
     // + другие редьюсеры
 });
 

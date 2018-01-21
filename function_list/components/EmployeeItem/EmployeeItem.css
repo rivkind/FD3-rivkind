@@ -1,0 +1,13 @@
+.EmployeeItem{
+    width:100%;
+    border-bottom:1px solid #ccc;
+    background-color: #fff;
+    padding: 10px 0px;
+}
+.EmployeeItem:hover{
+    background-color: #23A0FF;
+    color:#fff;
+}
+.EmployeeItem div{
+    display: inline-block;
+}

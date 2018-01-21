@@ -1,7 +1,12 @@
+"use strict";
+import {default as isoFetch} from 'isomorphic-fetch';
+require("babel-polyfill");
 import phones from './mockPhones'
 
+
 export const fetchData = async () => {
-  return new Promise(resolve => {
-    resolve(phones)
-  })
+  //console.log('a');
+
+  
 }
+

@@ -1,0 +1,23 @@
+.EmployeeListHeader{
+    width:100%;
+    border-bottom: 2px solid #32a3eb;
+    position: fixed;
+    top: 55;
+    background-color: #fff;
+}
+
+.EmployeeListHeader>div{
+    display: inline-block;
+    padding: 10px;
+    white-space: nowrap;
+    text-align: left;
+    font-weight: bold;
+}
+.EmployeeListBody{
+    padding-top: 37px;
+    width:100%;
+}
+.surnameEmployee{
+    width:250px;
+    padding-left:30px !important;
+}

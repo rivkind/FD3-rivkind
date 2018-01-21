@@ -2,7 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
 
-import { language_create as fetchLanguage,language_change } from '../../actions/language';
+import {fetchData } from '../../actions/functionlist';
+//import {fetchData } from '../../actions/functionlist';
 
 import './Language.css';
 
@@ -15,15 +16,16 @@ class Language extends React.PureComponent {
   componentWillMount() {
     // изначально счётчика с идентификатором counterid нет
     // создадим
-    //this.props.fetchLanguage();
-    //this.props.dispatch( counterButton_create(this.props.counterid) );
+    
   }
 
   changeLanguage = (EO) => {
     let l1=EO.target.src.split('/');
     let lang = l1[l1.length-1].split('.');
-    this.props.dispatch( language_change(lang[0]));
-    console.log('Язык - ',this.props.lang);
+    this.props.fetchData(lang[0]);
+    //this.props.dispatch(language_change(lang[0]));
+    //fetchData(lang[0]);
+    //console.log('Язык - ',this.props.lang);
     
     
     //dispatch({type:LANGUAGE_CHANGE,preload:lang[0]});
@@ -48,11 +50,13 @@ class Language extends React.PureComponent {
 }
 
 const mapStateToProps = state => ({
-  lang: state.language.lang,
+  lang: state.functionlist.lang,
+  //employee: state.functionlist.employee,
+  //title: state.functionlist.title,
 })
 
 const mapDispatchToProps = {
-  //fetchLanguage
+  fetchData
 }
 
-export default connect(mapStateToProps)(Language);
+export default connect(mapStateToProps,mapDispatchToProps)(Language);
