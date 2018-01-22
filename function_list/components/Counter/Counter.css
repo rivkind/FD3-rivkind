@@ -1,0 +1,19 @@
+.CounterBlock
+{
+    font-size: 11px;
+    color: #fff;
+    border-radius:12px;
+    width:30px;
+    -moz-border-radius:12px;
+    -webkit-border-radius:12px;
+    -khtml-border-radius:12px;
+    border:#fff 1px solid;
+    font-size:12px;
+    text-shadow:0 1px 0 #fff;
+    text-align:center;
+    padding: 1px 4px;
+    font-weight: bold;
+    cursor: help;
+    display: inline-block;
+    
+}
