@@ -18,7 +18,7 @@ class FunctionList extends React.Component {
   
 
   componentDidUpdate(oldProps, oldState){
-    if(oldProps.lang!=this.props.lang){
+    if(oldProps.lang!=this.props.lang && !this.props.isLoading){
       this.props.fetchData(this.props.lang,oldProps.company);
     }
   }

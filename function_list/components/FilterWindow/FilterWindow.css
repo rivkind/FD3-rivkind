@@ -1,18 +1,16 @@
-.SettingsWindow h4{
+.FilterWindow>div select{
+    width: 100%;
+    padding: 5px;
+    margin-bottom:10px;
+}
+.FilterWindow h4{
     padding: 5px 10px;
     margin-bottom:5px;
 }
-.SettingsWindow div.inputBlockSettings div{
-    display:inline-block;
-    padding: 2px 5px;
-}
-.SettingsWindow div.inputBlockSettings{
-    margin-bottom:5px;
-}
-.btnBlockSettings{
+.btnBlockFilter{
     margin-top:10px;
 }
-.btnBlockSettings input{
+.btnBlockFilter input{
     margin-right:10px;
     color: #fff;
     background-color: #337ab7;
@@ -26,7 +24,7 @@
     touch-action: manipulation;
     cursor: pointer;
 }
-.btnBlockSettings input:hover{
+.btnBlockFilter input:hover{
     color: #fff;
     background-color: #437192;
     

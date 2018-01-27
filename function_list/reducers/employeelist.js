@@ -1,11 +1,11 @@
 "use strict";
 
-import {  FETCH_DATA_START,FETCH_DATA_SUCCESS,FETCH_DATA_FAILURE } from '../constants/constants';
+import {  EMPLOYEE_CHANGE_DATA } from '../constants/constants';
 
 const initState={
 
-  // ключ - идентификатор счётчика, значение - число нажатий
   employee: [],
+  company: "life",
 
 }
 
@@ -15,19 +15,14 @@ const initState={
 function employeeListReducer(state=initState,action) {
   switch (action.type) {
 
-    case FETCH_DATA_START: {
-      
-      return state;
+    case EMPLOYEE_CHANGE_DATA: {
+      let newState={...state,
+        employee:action.preload,
+        company:action.company,
+      };
+      return newState;
     }
-    case FETCH_DATA_SUCCESS: {
-      
-      return state;
-    }
-    case FETCH_DATA_FAILURE: {
-      
-      return state;
-    }
-
+    
     default:
       return state;
   }

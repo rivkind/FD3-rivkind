@@ -1,17 +1,19 @@
 .EmployeeListHeader{
-    width:100%;
+    min-width:1900px;
     border-bottom: 2px solid #32a3eb;
-    position: fixed;
+    position: absolute;
     top: 55;
     background-color: #fff;
+    max-height:36px;
 }
 
 .EmployeeListHeader>div{
     display: inline-block;
-    padding: 10px;
+    padding: 10px 0px;
     white-space: nowrap;
     text-align: left;
     font-weight: bold;
+    vertical-align: top;
 }
 .EmployeeListBody{
     padding-top: 37px;
@@ -20,4 +22,77 @@
 .surnameEmployee{
     width:250px;
     padding-left:30px !important;
+    margin-right: 10px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    vertical-align: middle;
+}
+.sexEmployee{
+    width:50px;
+    margin-right: 10px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    vertical-align: middle;
+}
+.positionEmployee{
+    width: 200px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    margin-right: 10px;
+    vertical-align: middle;
+}
+.mngEmployee{
+    width: 150px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    margin-right: 10px;
+    vertical-align: middle;
+}
+.divisionEmployee{
+    width: 150px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    margin-right: 10px;
+    vertical-align: middle;
+}
+.unitEmployee{
+    width: 150px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    margin-right: 10px;
+    vertical-align: middle;
+}
+.teamEmployee{
+    width: 150px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    margin-right: 10px;
+    vertical-align: middle;
+}
+.lctnEmployee{
+    width: 70px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    margin-right: 10px;
+    vertical-align: middle;
+}
+.phoneEmployee{
+    width: 130px;
+    white-space: nowrap;
+    overflow: hidden;
+    margin-right: 20px;
+    vertical-align: middle;
+}
+.emailEmployee{
+    white-space: nowrap;
+    overflow: hidden;
+    vertical-align: middle;
 }

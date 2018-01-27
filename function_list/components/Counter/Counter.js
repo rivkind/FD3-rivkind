@@ -17,7 +17,7 @@ class Counter extends React.PureComponent {
 
 const mapStateToProps = state => ({
   counter_title: state.functionlist.title.counter,
-  counter: state.functionlist.view_employee.length,
+  counter: state.employeelist.employee.length,
 })
 
 export default connect(mapStateToProps)(Counter);

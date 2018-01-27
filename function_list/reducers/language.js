@@ -18,7 +18,6 @@ function languageReducer(state=initState,action) {
       };
       return newState;
     }
-
     default:
       return state;
   }

@@ -193,6 +193,36 @@ to {
 .LanguageBlock img{
     margin-bottom: -7px;
     cursor: pointer;
+}.FilterWindow>div select{
+    width: 100%;
+    padding: 5px;
+    margin-bottom:10px;
+}
+.FilterWindow h4{
+    padding: 5px 10px;
+    margin-bottom:5px;
+}
+.btnBlockFilter{
+    margin-top:10px;
+}
+.btnBlockFilter input{
+    margin-right:10px;
+    color: #fff;
+    background-color: #337ab7;
+    border-color: #2e6da4;
+    padding: 5px 10px;
+    font-size: 12px;
+    line-height: 1.5;
+    border-radius: 3px;
+    background-image: none;
+    border: 1px solid transparent;
+    touch-action: manipulation;
+    cursor: pointer;
+}
+.btnBlockFilter input:hover{
+    color: #fff;
+    background-color: #437192;
+    
 }.FilterList
 {
     display: inline-block;
@@ -216,19 +246,21 @@ to {
     padding: 10px;
     text-align: left;
 }
-.FilterList>div select{
-    width: 100%;
-    padding: 5px;
-    margin-bottom:10px;
-}
-.FilterList h4{
+.SettingsWindow h4{
     padding: 5px 10px;
     margin-bottom:5px;
 }
-.btnBlockFilter{
+.SettingsWindow div.inputBlockSettings div{
+    display:inline-block;
+    padding: 2px 5px;
+}
+.SettingsWindow div.inputBlockSettings{
+    margin-bottom:5px;
+}
+.btnBlockSettings{
     margin-top:10px;
 }
-.btnBlockFilter input{
+.btnBlockSettings input{
     margin-right:10px;
     color: #fff;
     background-color: #337ab7;
@@ -242,7 +274,7 @@ to {
     touch-action: manipulation;
     cursor: pointer;
 }
-.btnBlockFilter input:hover{
+.btnBlockSettings input:hover{
     color: #fff;
     background-color: #437192;
     
@@ -269,39 +301,7 @@ to {
     padding: 10px;
     text-align: left;
 }
-.SettingList h4{
-    padding: 5px 10px;
-    margin-bottom:5px;
-}
-.SettingList div.inputBlockSettings div{
-    display:inline-block;
-    padding: 2px 5px;
-}
-.SettingList div.inputBlockSettings{
-    margin-bottom:5px;
-}
-.btnBlockSettings{
-    margin-top:10px;
-}
-.btnBlockSettings input{
-    margin-right:10px;
-    color: #fff;
-    background-color: #337ab7;
-    border-color: #2e6da4;
-    padding: 5px 10px;
-    font-size: 12px;
-    line-height: 1.5;
-    border-radius: 3px;
-    background-image: none;
-    border: 1px solid transparent;
-    touch-action: manipulation;
-    cursor: pointer;
-}
-.btnBlockSettings input:hover{
-    color: #fff;
-    background-color: #437192;
-    
-}.MenuBlock
+.MenuBlock
 {
     float: right;
     margin-left: 15px;
@@ -386,7 +386,7 @@ body
   padding-top: 55px;
 }
 .EmployeeItem{
-    width:100%;
+    width:1900px;
     border-bottom:1px solid #ccc;
     background-color: #fff;
     padding: 10px 0px;
@@ -398,19 +398,21 @@ body
 .EmployeeItem div{
     display: inline-block;
 }.EmployeeListHeader{
-    width:100%;
+    min-width:1900px;
     border-bottom: 2px solid #32a3eb;
-    position: fixed;
+    position: absolute;
     top: 55;
     background-color: #fff;
+    max-height:36px;
 }
 
 .EmployeeListHeader>div{
     display: inline-block;
-    padding: 10px;
+    padding: 10px 0px;
     white-space: nowrap;
     text-align: left;
     font-weight: bold;
+    vertical-align: top;
 }
 .EmployeeListBody{
     padding-top: 37px;
@@ -419,4 +421,77 @@ body
 .surnameEmployee{
     width:250px;
     padding-left:30px !important;
+    margin-right: 10px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    vertical-align: middle;
+}
+.sexEmployee{
+    width:50px;
+    margin-right: 10px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    vertical-align: middle;
+}
+.positionEmployee{
+    width: 200px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    margin-right: 10px;
+    vertical-align: middle;
+}
+.mngEmployee{
+    width: 150px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    margin-right: 10px;
+    vertical-align: middle;
+}
+.divisionEmployee{
+    width: 150px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    margin-right: 10px;
+    vertical-align: middle;
+}
+.unitEmployee{
+    width: 150px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    margin-right: 10px;
+    vertical-align: middle;
+}
+.teamEmployee{
+    width: 150px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    margin-right: 10px;
+    vertical-align: middle;
+}
+.lctnEmployee{
+    width: 70px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    margin-right: 10px;
+    vertical-align: middle;
+}
+.phoneEmployee{
+    width: 130px;
+    white-space: nowrap;
+    overflow: hidden;
+    margin-right: 20px;
+    vertical-align: middle;
+}
+.emailEmployee{
+    white-space: nowrap;
+    overflow: hidden;
+    vertical-align: middle;
 }

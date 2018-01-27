@@ -40,6 +40,7 @@ ReactDOM.render(
       <FunctionList>
         <Route path="/" exact component={EmployeeList} />
         <Route path="/lifetech" component={EmployeeList} />
+        <Route path="/search/:searchword" component={EmployeeList} />
         <Route path="/group" component={Page_Group} />
         <Route path="/external_accounts" component={Page_EA} />
       </FunctionList>

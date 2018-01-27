@@ -1,11 +1,15 @@
 import React from 'react';
 import {connect} from 'react-redux';
 
-import { languageChange } from '../../actions/language';
+import { languageChange, getLanguage } from '../../actions/language';
 
 import './Language.css';
 
 class Language extends React.PureComponent {
+
+  componentWillMount () {
+    this.props.getLanguage(this.props.lang);
+  }
 
   changeLanguage = (EO) => {
 
@@ -39,6 +43,7 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = {
 
   languageChange,
+  getLanguage,
 
 }
 

@@ -5,14 +5,9 @@ require("babel-polyfill");
 
 import { FETCH_DATA_START, FETCH_DATA_SUCCESS, FETCH_DATA_FAILURE } from '../constants/constants';
 
-const prepareData = (data,company) => {
-    
-    var new_data = data.filter(employee => employee.company == company);
-    return new_data;
-}
-
 const fetchData = (lang,company) => async dispatch => {
 
+    console.log('a');
     dispatch({type: FETCH_DATA_START});
     
     isoFetch("https://openball.org/lang.php?lang="+lang, {
@@ -29,13 +24,11 @@ const fetchData = (lang,company) => async dispatch => {
     }).then( (data) => {
 
         try {
-            var data_new = prepareData(data.employee,company);
+            //var data_new = prepareData(data.employee,company);
             dispatch({
                 type: FETCH_DATA_SUCCESS,
                 data:data.employee,
                 title:data.title,
-                data_view:data_new,
-                company:company,
             })
       }
       catch ( error ){

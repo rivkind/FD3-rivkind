@@ -21,36 +21,3 @@
     padding: 10px;
     text-align: left;
 }
-.SettingList h4{
-    padding: 5px 10px;
-    margin-bottom:5px;
-}
-.SettingList div.inputBlockSettings div{
-    display:inline-block;
-    padding: 2px 5px;
-}
-.SettingList div.inputBlockSettings{
-    margin-bottom:5px;
-}
-.btnBlockSettings{
-    margin-top:10px;
-}
-.btnBlockSettings input{
-    margin-right:10px;
-    color: #fff;
-    background-color: #337ab7;
-    border-color: #2e6da4;
-    padding: 5px 10px;
-    font-size: 12px;
-    line-height: 1.5;
-    border-radius: 3px;
-    background-image: none;
-    border: 1px solid transparent;
-    touch-action: manipulation;
-    cursor: pointer;
-}
-.btnBlockSettings input:hover{
-    color: #fff;
-    background-color: #437192;
-    
-}
