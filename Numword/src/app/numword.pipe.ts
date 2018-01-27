@@ -9,7 +9,7 @@ export class ApplesPipe {
   transform(num:number,word1:string,word2:string,word5:string):string {
     var str:any=num;
     var s:any = /^\d+$/;
-    if(!s.test(str)) return '';
+    if(!s.test(str)) num=0;
     var dd=num%100;
     if ( (dd>=11) && (dd<=19) )
         return num+' '+word5;
