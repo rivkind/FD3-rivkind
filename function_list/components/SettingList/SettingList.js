@@ -20,6 +20,7 @@ class SettingList extends React.PureComponent {
 
   
   render() {
+    console.log('Рендер SettingList: ',this.props.settings_data);
     const {settings} = this.props.settings_title;
     
     return (

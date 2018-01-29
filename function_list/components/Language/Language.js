@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
 
 import { languageChange, getLanguage } from '../../actions/language';
@@ -6,6 +7,10 @@ import { languageChange, getLanguage } from '../../actions/language';
 import './Language.css';
 
 class Language extends React.PureComponent {
+
+  static propTypes = {
+    lang: PropTypes.string.isRequired, // передано из Redux
+  };
 
   componentWillMount () {
     this.props.getLanguage(this.props.lang);
@@ -19,7 +24,7 @@ class Language extends React.PureComponent {
   }
 
   render() {
-    console.log('Рендер',this.props.lang);
+    console.log('Рендер Language: ',this.props.lang);
     return (
       <div className='LanguageBlock'>
       {

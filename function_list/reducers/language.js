@@ -4,7 +4,7 @@ import { LANGUAGE_CHANGE } from '../constants/constants';
 
 const initState={
 
-  lang: 'eng',
+  lang: '',
 
 }
 

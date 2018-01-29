@@ -1,12 +1,11 @@
 "use strict";
 
-import {  EMPLOYEE_CHANGE_DATA } from '../constants/constants';
+import {  EMPLOYEE_CHANGE_DATA, EMPLOYEE_CHANGE_COMPANY } from '../constants/constants';
 
 const initState={
 
   employee: [],
-  company: "life",
-
+  company: '',
 }
 
 // в редьюсере state - это не весь state Redux, а только тот раздел state,
@@ -19,6 +18,12 @@ function employeeListReducer(state=initState,action) {
       let newState={...state,
         employee:action.preload,
         company:action.company,
+      };
+      return newState;
+    }
+    case EMPLOYEE_CHANGE_COMPANY: {
+      let newState={...state,
+        company:action.preload,
       };
       return newState;
     }

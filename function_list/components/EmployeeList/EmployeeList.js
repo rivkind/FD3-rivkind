@@ -1,8 +1,10 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
 
 import EmployeeItem from '../EmployeeItem/EmployeeItem';
-import { prepareData } from '../../actions/employeelist';
+//import { prepareData, changeCompany } from '../../actions/employeelist';
+//import { fetchData } from '../../actions/functionlist';
 
 
 import './EmployeeList.css';
@@ -13,39 +15,10 @@ class EmployeeList extends React.PureComponent {
   
 
   static propTypes = {
-    //employee: PropTypes.any, // передано из Redux
-    //lang: PropTypes.any, // передано из Redux
+   // company: PropTypes.string.isRequired,
+    //lang: PropTypes.string.isRequired,
   };
-  componentDidMount(){
-    
-    if(this.props.location.pathname == '/') var company = 'life';
-    else if(this.props.location.pathname.indexOf('search')!=-1) var company = 'search'; 
-    else var company = 'lifetech';
-    
-    if(this.props.match.params.searchword!='' || company!=this.props.company){
-      if(company == 'search'){
-        //console.log("sfdsffffffffffffffffffffffffffffffffffffffffff",this.props.data);
-        //this.props.prepareData(this.props.data,company,this.props.match.params.searchword);
-      }else this.props.prepareData(this.props.data,company);
-
-      
-    }
-    //console.log('componentDidMount');
-  }
-
   
-
-  componentDidUpdate(oldProps, oldState){
-    
-    if(oldProps.data!=this.props.data){
-      
-      if(this.props.location.pathname.indexOf('search')!=-1){
-        this.props.prepareData(this.props.data,'search',this.props.match.params.searchword);
-      }else this.props.prepareData(this.props.data,this.props.company);
-    }else if(oldProps.search!=this.props.search){
-      this.props.prepareData(this.props.data,'search',this.props.search);
-    }
-  }
   
  
   render() {
@@ -97,14 +70,15 @@ class EmployeeList extends React.PureComponent {
 const mapStateToProps = state => ({
   list_title: state.functionlist.title,
   settings_data: state.settinglist.settings,
-  search: state.search.search,
-  data: state.functionlist.employee,
-  company: state.employeelist.company,
+  //search: state.search.search,
+  //data: state.functionlist.employee,
+  //company: state.employeelist.company,
   employees: state.employeelist.employee,
+  //lang: state.language.lang,
 })
 
-const mapDispatchToProps = {
-  prepareData,
-}
+//const mapDispatchToProps = {
+  //prepareData,fetchData,changeCompany
+//}
 
-export default connect(mapStateToProps,mapDispatchToProps)(EmployeeList);
+export default connect(mapStateToProps,null)(EmployeeList);

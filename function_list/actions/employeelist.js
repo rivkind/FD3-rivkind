@@ -1,16 +1,14 @@
 "use strict";
 
 
-import { EMPLOYEE_CHANGE_DATA } from '../constants/constants';
+import { EMPLOYEE_CHANGE_DATA, EMPLOYEE_CHANGE_COMPANY } from '../constants/constants';
 
-const prepareData = (data,company,search=null) => dispatch => {
+const prepareData = (data,company,search=null) => async dispatch => {
     var new_data = [];
     if(company=='search'){
-        
         new_data = data.filter(employee => employee.search.toLowerCase().indexOf(search.toLowerCase())!=-1);
     }
     else{
-
         new_data = data.filter(employee => employee.company == company);
     }
     dispatch({
@@ -21,6 +19,14 @@ const prepareData = (data,company,search=null) => dispatch => {
     
 }
 
+const changeCompany = (company) => async dispatch => {
+    dispatch({
+        type: EMPLOYEE_CHANGE_COMPANY,
+        preload:company,
+    })
+    
+}
+
 export {
-    prepareData,
+    prepareData, changeCompany
 }

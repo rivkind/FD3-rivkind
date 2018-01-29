@@ -6,6 +6,7 @@ const initState={
   isLoading: true,
   employee: [],
   title: [],
+  position: [],
   company: 'life',
 }
 
@@ -24,6 +25,7 @@ function functionListReducer(state=initState,action) {
       let newState={...state,
         employee:action.data,
         title:action.title,
+        position:action.position,
         isLoading:false,
       };
       return newState;

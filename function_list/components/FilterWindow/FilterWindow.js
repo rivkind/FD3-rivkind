@@ -32,6 +32,11 @@ class FilterWindow extends React.PureComponent {
 
   render() {
     const {filter,apply,close,all_company,all_gender,all_no_maternity,male,female,maternity,all_mng,all_division,all_unit,all_team,all_position} = this.props.filter_title;
+    
+    var positionCode=this.props.position.map( pos =>
+      <option value={pos.id}>{pos.name}</option>
+    );
+
     return (
         <div className='FilterWindow'>
             <h4>{filter}:</h4>
@@ -51,7 +56,7 @@ class FilterWindow extends React.PureComponent {
             <div><select><option value='0'>{all_division}</option></select></div>
             <div><select><option value='0'>{all_unit}</option></select></div>
             <div><select><option value='0'>{all_team}</option></select></div>
-            <div><select><option value='0'>{all_position}</option></select></div>
+            <div><select><option value='0'>{all_position}</option>{positionCode}</select></div>
             <div className='btnBlockFilter'><input defaultValue={apply} type="button" /><input defaultValue={close} type="button" onClick={this.chVisibleFilter} /></div>
         </div>
     );
@@ -62,6 +67,7 @@ class FilterWindow extends React.PureComponent {
 const mapStateToProps = state => ({
   filter_title: state.functionlist.title,
   isFilter: state.filterlist.isFilter,
+  position:state.functionlist.position,
 })
 
 const mapDispatchToProps = {

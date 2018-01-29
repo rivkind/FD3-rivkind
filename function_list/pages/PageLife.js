@@ -4,7 +4,7 @@ import EmployeeList from '../components/EmployeeList/EmployeeList';
 class PageLife extends React.PureComponent {
           
   render() {
-    //console.log(this.props);
+    console.log("Рендер PageLife");
     return (
       <EmployeeList company='life' />
     );

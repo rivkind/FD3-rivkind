@@ -25,10 +25,18 @@ const fetchData = (lang,company) => async dispatch => {
 
         try {
             //var data_new = prepareData(data.employee,company);
+            var position = data.position.sort(function(obj1, obj2) {
+                if (obj1.name < obj2.name) return -1;
+                if (obj1.name > obj2.name) return 1;
+                return 0;
+              });
+
+
             dispatch({
                 type: FETCH_DATA_SUCCESS,
                 data:data.employee,
                 title:data.title,
+                position:position,
             })
       }
       catch ( error ){

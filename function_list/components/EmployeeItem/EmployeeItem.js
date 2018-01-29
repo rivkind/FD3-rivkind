@@ -14,12 +14,13 @@ class EmployeeItem extends React.PureComponent {
     //lang: PropTypes.any, // передано из Redux
   };
   componentDidMount(){
-    //console.log(this.props.location.pathname);
+    //console.log("_____________________________________");
   }
+  
   
  
   render() {
-     //console.log("Рендер сотрудника ",this.props.info.id);
+     //console.log("Рендер сотрудника ",this.props.items.id);
      const arrayData = [
       {"label":"positionEmployee","name":this.props.items.position},
       {"label":"mngEmployee","name":this.props.items.mng},
@@ -32,7 +33,7 @@ class EmployeeItem extends React.PureComponent {
 
       var infoCode=arrayData.map( (data,index) =>
       (this.props.settings_data[index])&&
-      <div className={data.label}>{data.name}</div>
+      <div key={data.label} className={data.label}>{data.name}</div>
     );
 
     return (
