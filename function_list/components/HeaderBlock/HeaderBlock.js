@@ -22,11 +22,11 @@ class HeaderBlock extends React.Component {
     return (
       <header>
         <Logo />
+        <Counter />
         <Search />
         <Birthday />
         <div className='HeaderBlockRight'>
           <div className='HeaderBlockRightTop'>
-            <Counter />
             <Language />
           </div>
           <div className='HeaderBlockRightBottom'>

@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import ReactTooltip from 'react-tooltip'
 import {connect} from 'react-redux';
 
 import './EmployeeItem.css';
@@ -33,15 +34,27 @@ class EmployeeItem extends React.PureComponent {
 
       var infoCode=arrayData.map( (data,index) =>
       (this.props.settings_data[index])&&
-      <div key={data.label} className={data.label}>{data.name}</div>
+      <td key={data.label} className={data.label}>{data.name}</td>
     );
 
     return (
-      <div className='EmployeeItem'>
-        <div className='surnameEmployee'>{this.props.items.surname}</div>
-        <div className='sexEmployee'></div>
+      <tr className='EmployeeItem'>
+        <td className='surnameEmployee'>
+          <a data-tip data-for={this.props.items.id}>{this.props.items.surname}</a>
+          <ReactTooltip id={this.props.items.id} aria-haspopup='true' role='example' place="right" type="light">
+ <p>{this.props.items.surname}</p>
+ <p>You can put every thing here</p>
+ <ul>
+   <li>Word</li>
+   <li>Chart</li>
+   <li>Else</li>
+ </ul>
+</ReactTooltip>
+        </td>
+        <td className='sexEmployee'>123</td>
         {infoCode}
-      </div>
+        <td></td>
+      </tr>
     )
     ;
 

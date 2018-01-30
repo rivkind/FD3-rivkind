@@ -35,7 +35,7 @@ class EmployeeList extends React.PureComponent {
 
     var headerCode=arraySettings.map( (setting,index) =>
       (this.props.settings_data[index])&&
-      <td key={setting.label} className={setting.label}><div className='titleEmployee'>{setting.name}</div></td>
+      <td key={setting.label} className={setting.label}>{setting.name}</td>
     );
 
     var employeeCode=this.props.employees.map( employee =>
@@ -47,19 +47,20 @@ class EmployeeList extends React.PureComponent {
     console.log('Render Employee1');
     return (
       
-      <table cellPadding='0' cellSpacing='0' className='employeeList'>
-      <thead>
-        <tr>
-          <td className='surnameEmployee'><div className='titleEmployee'>{surname}</div></td>
-          <td className='sexEmployee'><div className='titleEmployee'>{sex}</div></td>
-          {headerCode}
-          <td></td>
-          </tr>
-        </thead>
-        <tbody className='EmployeeListBody'>
+      <div>
+          <table>
+              <thead>
+                <tr>
+                    <td>{surname}</td>
+                    <td>{sex}</td>
+                    {headerCode}
+                </tr>
+              </thead>
+        <tbody>
         {employeeCode}
-        </tbody>
-      </table>
+         </tbody>
+         </table>
+      </div>
     )
     ;
 

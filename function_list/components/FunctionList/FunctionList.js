@@ -57,8 +57,10 @@ class FunctionList extends React.Component {
          //this.props.prepareData(this.props.data,company);
       }else if(oldProps.data!=this.props.data){
           //console.log("componentDidUpdate EmployeeList");
-          this.props.prepareData(this.props.data,company);
+          if(this.props.match.params.searchword!='') this.props.prepareData(this.props.data,company,this.props.match.params.searchword);
+          else this.props.prepareData(this.props.data,company);
         }else if(oldProps.lang!=this.props.lang){
+          
           this.props.fetchData(this.props.lang,company);
         }else if(oldProps.search!=this.props.search){
           //this.props.prepareData(this.props.data,'search',this.props.search);

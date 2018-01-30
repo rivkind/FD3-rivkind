@@ -7,8 +7,11 @@ class Counter extends React.PureComponent {
   render() {
 
     return (
-      <div className='CounterBlock' title={this.props.counter_title}>
+      <div className='CounterBlock'>
+        <span></span>
+        <div className='CounterBlockView' title={this.props.counter_title}>
         {this.props.counter}
+        </div>
       </div>
     );
   }

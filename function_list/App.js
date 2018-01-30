@@ -2,7 +2,7 @@
 
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { Router, Route } from 'react-router';
+import { Router, Route, hashHistory } from 'react-router';
 import { Provider } from 'react-redux';
 import { createStore, applyMiddleware} from 'redux';
 import { routerMiddleware } from 'react-router-redux';
@@ -26,7 +26,7 @@ import Page_Group from './pages/Page_Group';
 // if (process.env.NODE_ENV !== 'production') {
 
 
-const history = createHistory()
+const history = createHistory(hashHistory)
 const middleware = routerMiddleware(history)
 
 const store = createStore(combinedReducer, composeWithDevTools(

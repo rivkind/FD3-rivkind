@@ -1,13 +1,21 @@
 .EmployeeItem{
-    width:1900px;
     border-bottom:1px solid #ccc;
     background-color: #fff;
-    padding: 10px 0px;
 }
 .EmployeeItem:hover{
     background-color: #23A0FF;
-    color:#fff;
+    color:#fff !important;
 }
-.EmployeeItem div{
-    display: inline-block;
+.EmployeeItem td{
+    border-bottom:1px solid #ccc;
+   text-decoration: none;
+   
 }
+.EmployeeItem td:last-child{
+    width: 100%;
+}
+.__react_component_tooltip.type-light{
+ border: 1px solid #000;
+ 
+}
+

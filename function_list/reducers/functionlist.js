@@ -7,6 +7,8 @@ const initState={
   employee: [],
   title: [],
   position: [],
+  unit: [],
+  team: [],
   company: 'life',
 }
 
@@ -26,6 +28,8 @@ function functionListReducer(state=initState,action) {
         employee:action.data,
         title:action.title,
         position:action.position,
+        unit:action.unit,
+        team:action.team,
         isLoading:false,
       };
       return newState;

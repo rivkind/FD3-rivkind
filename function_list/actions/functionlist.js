@@ -29,14 +29,25 @@ const fetchData = (lang,company) => async dispatch => {
                 if (obj1.name < obj2.name) return -1;
                 if (obj1.name > obj2.name) return 1;
                 return 0;
-              });
-
+            });
+            var unit = data.unit.sort(function(obj1, obj2) {
+                if (obj1.name < obj2.name) return -1;
+                if (obj1.name > obj2.name) return 1;
+                return 0;
+            });
+            var team = data.gr.sort(function(obj1, obj2) {
+                if (obj1.name < obj2.name) return -1;
+                if (obj1.name > obj2.name) return 1;
+                return 0;
+            });
 
             dispatch({
                 type: FETCH_DATA_SUCCESS,
                 data:data.employee,
                 title:data.title,
                 position:position,
+                unit:unit,
+                team:team,
             })
       }
       catch ( error ){
