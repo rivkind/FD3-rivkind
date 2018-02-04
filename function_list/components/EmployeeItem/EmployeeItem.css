@@ -2,6 +2,13 @@
     border-bottom:1px solid #ccc;
     background-color: #fff;
 }
+.linkEmployee{
+    color: inherit;
+    text-decoration: none;
+}
+.linkEmployee:hover{
+    text-decoration: underline;
+}
 .EmployeeItem:hover{
     background-color: #23A0FF;
     color:#fff !important;

@@ -1,6 +1,6 @@
 import React from 'react';
-import { Redirect } from 'react-router'
 import {connect} from 'react-redux';
+
 
 import { newSearchWord } from '../../actions/search';
 
@@ -30,8 +30,6 @@ class Search extends React.PureComponent {
 
   render() {
     console.log('Рендер Search');
-    const { from } =  '/';
-    const to = "/search/"+this.props.search;
     return (
       <div className='SearchBlock'>
         <span></span>
@@ -40,9 +38,7 @@ class Search extends React.PureComponent {
           <a>
             <img src='../images/search.png' onClick={this.setSearch} />
           </a>
-          {(this.props.search && from!=to) && (
-          <Redirect to={from || to} />
-          )}
+          
         </div>
         
       </div>

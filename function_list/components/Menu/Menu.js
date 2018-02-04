@@ -15,8 +15,6 @@ class Menu extends React.Component {
             <div>
             <NavLink to="/" exact className="PageLink" activeClassName="ActivePageLink"><span></span>Life</NavLink>
             <NavLink to="/lifetech" className="PageLink" activeClassName="ActivePageLink"><span></span>LifeTech</NavLink>
-            <NavLink to="/group" className="PageLink" activeClassName="ActivePageLink"><span></span>Group</NavLink>
-            <NavLink to="/external_accounts" className="PageLink" activeClassName="ActivePageLink"><span></span>EA</NavLink>
           </div>
         </div>
      

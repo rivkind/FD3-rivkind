@@ -5,9 +5,8 @@ require("babel-polyfill");
 
 import { FETCH_DATA_START, FETCH_DATA_SUCCESS, FETCH_DATA_FAILURE } from '../constants/constants';
 
-const fetchData = (lang,company) => async dispatch => {
+const fetchData = (lang) => async dispatch => {
 
-    console.log('a');
     dispatch({type: FETCH_DATA_START});
     
     isoFetch("https://openball.org/lang.php?lang="+lang, {
@@ -24,7 +23,6 @@ const fetchData = (lang,company) => async dispatch => {
     }).then( (data) => {
 
         try {
-            //var data_new = prepareData(data.employee,company);
             var position = data.position.sort(function(obj1, obj2) {
                 if (obj1.name < obj2.name) return -1;
                 if (obj1.name > obj2.name) return 1;
@@ -40,10 +38,15 @@ const fetchData = (lang,company) => async dispatch => {
                 if (obj1.name > obj2.name) return 1;
                 return 0;
             });
+            var employee = data.employee.sort(function(obj1, obj2) {
+                if (obj1.surname < obj2.surname) return -1;
+                if (obj1.surname > obj2.surname) return 1;
+                return 0;
+            });
 
             dispatch({
                 type: FETCH_DATA_SUCCESS,
-                data:data.employee,
+                data:employee,
                 title:data.title,
                 position:position,
                 unit:unit,

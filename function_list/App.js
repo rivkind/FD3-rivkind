@@ -16,6 +16,7 @@ import combinedReducer from './reducers/index.js';
 import FunctionList from './components/FunctionList/FunctionList';
 import EmployeeList from './components/EmployeeList/EmployeeList';
 import HeaderBlock from './components/HeaderBlock/HeaderBlock';
+import Profile from './components/Profile/Profile';
 import PageLife from './pages/PageLife';
 import PageLifetech from './pages/PageLifetech';
 import Page_EA from './pages/Page_EA';
@@ -39,13 +40,11 @@ ReactDOM.render(
   <Provider store={store}>
     <Router history={history}>
       <div>
-      <HeaderBlock />
-      <Route path="/" exact component={FunctionList} />
-        <Route path="/lifetech" component={FunctionList} />
-        <Route path="/search/:searchword" component={FunctionList} />
-        <Route path="/group" component={Page_Group} />
-        <Route path="/external_accounts" component={Page_EA} />
-        <EmployeeList />
+        <HeaderBlock />
+        <Route path="/" exact component={EmployeeList} />
+        <Route path="/lifetech" component={EmployeeList} />
+        <Route path="/search/:searchword" component={EmployeeList} />
+        <Route path="/employee/:id" component={Profile} />
       </div>
     </Router>
   </Provider>

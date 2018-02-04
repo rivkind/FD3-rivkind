@@ -10,7 +10,13 @@ class Counter extends React.PureComponent {
       <div className='CounterBlock'>
         <span></span>
         <div className='CounterBlockView' title={this.props.counter_title}>
-        {this.props.counter}
+        {
+          (this.props.count>0)?
+          <div>{this.props.count}</div>
+          :
+          '0'
+        }
+        
         </div>
       </div>
     );
@@ -20,7 +26,6 @@ class Counter extends React.PureComponent {
 
 const mapStateToProps = state => ({
   counter_title: state.functionlist.title.counter,
-  counter: state.employeelist.employee.length,
 })
 
 export default connect(mapStateToProps)(Counter);

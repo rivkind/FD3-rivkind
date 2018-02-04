@@ -8,7 +8,7 @@ class Logo extends React.Component {
   render() {
 
     return (
-      <NavLink to="/" exact className="LogoLink"><img src='/images/life.png' /></NavLink>
+      <NavLink to="/" className="LogoLink"><img src='/images/life.png' /></NavLink>
     );
   }
 

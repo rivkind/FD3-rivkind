@@ -11,17 +11,12 @@ import './FunctionList.css';
 
 class FunctionList extends React.Component {
 
-  //componentWillMount () {
-    //this.props.fetchData(this.props.lang,this.props.company);
-  //}
-
   componentDidMount(){
     
         
         var company = this.getCompany(this.props.location.pathname);
         console.log("__________ddddddddd_______");
         if(this.props.company==''){
-          //this.props.changeCompany(company);
           this.props.fetchData(this.props.lang,company);
         }
         
@@ -29,41 +24,21 @@ class FunctionList extends React.Component {
           console.log("dfdfggfhgfggggggggggggggggggggggg");
           this.props.prepareData(this.props.data,company,this.props.match.params.searchword);
         }
-        
-        
-        //console.log(this.props.match.params.searchword);
-    
-        //this.props.prepareData(this.props.data,this.props.company);
-        
-        /*if(this.props.location.pathname == '/') var company = 'life';
-        else if(this.props.location.pathname.indexOf('search')!=-1) var company = 'search'; 
-        else var company = 'lifetech';
-        
-        if(this.props.match.params.searchword!='' || company!=this.props.company){
-          if(company == 'search'){
-            //console.log("sfdsffffffffffffffffffffffffffffffffffffffffff",this.props.data);
-            //this.props.prepareData(this.props.data,company,this.props.match.params.searchword);
-          }else this.props.prepareData(this.props.data,company);
-    
-          
-        }*/
-        //console.log('componentDidMount');
       }
       componentDidUpdate(oldProps, oldState){
-        console.log("componentDidUpdate EmployeeList");
+        const sort_name = this.props.sortName;
+        const sort_diraction = this.props.sortDiraction;
+        const search = this.props.match.params.searchword;
         var company = this.getCompany(this.props.location.pathname);
-        if(oldProps.company!='' && oldProps.company != company){
-          console.log('dsafdsfgh');
-         //this.props.prepareData(this.props.data,company);
-      }else if(oldProps.data!=this.props.data){
-          //console.log("componentDidUpdate EmployeeList");
-          if(this.props.match.params.searchword!='') this.props.prepareData(this.props.data,company,this.props.match.params.searchword);
-          else this.props.prepareData(this.props.data,company);
-        }else if(oldProps.lang!=this.props.lang){
-          
+        if(oldProps.lang!=this.props.lang){
+        
           this.props.fetchData(this.props.lang,company);
-        }else if(oldProps.search!=this.props.search){
-          //this.props.prepareData(this.props.data,'search',this.props.search);
+        }else if(oldProps.data!=this.props.data || oldProps.search!=this.props.search || oldProps.sortName!=sort_name || oldProps.sortDiraction!=sort_diraction || (search!='' && search!=this.props.search)){
+         
+          this.props.prepareData(this.props.data,company,search,sort_name,sort_diraction);
+        
+        }else if(oldProps.search!=this.props.search || oldProps.sortName!=sort_name || oldProps.sortDiraction!=sort_diraction){
+           //this.props.prepareData(this.props.data,company,search,sort_name,sort_diraction);
         }
       }
     
@@ -75,11 +50,7 @@ class FunctionList extends React.Component {
 
   
 
-  //componentDidUpdate(oldProps, oldState){
-    //if(oldProps.lang!=this.props.lang && !this.props.isLoading){
-      //this.props.fetchData(this.props.lang,oldProps.company);
-    //}
-  //}
+  
 
  
   render() {
@@ -109,6 +80,10 @@ const mapStateToProps = state => ({
   title_site: state.functionlist.title.titleSite,
   company: state.employeelist.company,
   data: state.functionlist.employee,
+  search: state.search.search,
+  sortDiraction: state.employeelist.sortDirection,
+  sortName: state.employeelist.sortName,
+  
 })
 
 

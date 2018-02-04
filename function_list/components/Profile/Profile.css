@@ -1,0 +1,33 @@
+.ProfileBlock{
+    padding-left:40px;
+}
+.ProfileBlockHeader{
+    font-size: 22px;
+    padding: 20px 0px 40px;
+    color: #777;
+}
+.ProfileBlockPhoto{
+    float:left;
+    display: inline-block;
+    padding-right: 50px;
+}
+.ProfileBlockInfo {
+    float:left;
+    display: inline-block;
+}
+.ProfileBlockInfo td{
+    padding: 6px;
+    padding-right:20px;
+    white-space: nowrap;
+}
+.ProfileBlockInfo tr td:first-child{
+    color:#aaa;
+}
+.ProfileBlockInfoRowTitle{
+    display: inline-block;
+    width: 300px;
+}
+.ProfileBlockInfoRowContent{
+    display: inline-block;
+    width: 300px;
+}
