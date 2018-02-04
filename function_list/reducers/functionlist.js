@@ -35,14 +35,6 @@ function functionListReducer(state=initState,action) {
       return newState;
     }
 
-    /*case EMPLOYEE_CHANGE_DATA: {
-      let newState={...state,
-        view_employee:action.preload,
-        company:action.company,
-      };
-      return newState;
-    }*/
-    
     case FETCH_DATA_FAILURE: {
       
       return state;

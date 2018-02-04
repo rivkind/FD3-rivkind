@@ -133,22 +133,29 @@ class EmployeeList extends React.PureComponent {
     return (
       <div>
         <Counter count={count} />
-
-       <table cellPadding='0' cellSpacing='0' className='employeeList'>
-      <thead>
-        <tr>
-          <td className='surnameEmployee'><div className='titleEmployee' id='surname'  onClick={this.chSort}><div></div>{surname}</div></td>
-          <td className='sexEmployee'><div className='titleEmployee' id='sex'  onClick={this.chSort}>{sex}</div></td>
-          {headerCode}
-          <td></td>
-          </tr>
-        </thead>
-        <tbody className='EmployeeListBody'>
-        {employeeCode}
-        </tbody>
-      </table>
-      
-      <Pagination activePage={this.props.activePage} itemPage={this.props.itemPage} countData={count} />
+        {
+          (this.props.employees.length>0 && count>0)&&
+          <div>
+          <table cellPadding='0' cellSpacing='0' className='employeeList'>
+          <thead>
+            <tr>
+              <td className='surnameEmployee'><div className='titleEmployee' id='surname'  onClick={this.chSort}><div></div>{surname}</div></td>
+              <td className='sexEmployee'><div className='titleEmployee' id='sex'  onClick={this.chSort}>{sex}</div></td>
+              {headerCode}
+              <td></td>
+              </tr>
+            </thead>
+            <tbody className='EmployeeListBody'>
+            {employeeCode}
+            </tbody>
+          </table>
+          <Pagination activePage={this.props.activePage} itemPage={this.props.itemPage} countData={count} />
+          </div>
+        }
+        {
+          (this.props.employees.length > 0 && count == 0 && search != '')&&
+          <div className='noFoundSearch'>По Вашему запросу "{search}" данных не найдено!</div>
+        }
       </div>
     )
     ;

@@ -17,10 +17,8 @@ import FunctionList from './components/FunctionList/FunctionList';
 import EmployeeList from './components/EmployeeList/EmployeeList';
 import HeaderBlock from './components/HeaderBlock/HeaderBlock';
 import Profile from './components/Profile/Profile';
-import PageLife from './pages/PageLife';
-import PageLifetech from './pages/PageLifetech';
-import Page_EA from './pages/Page_EA';
-import Page_Group from './pages/Page_Group';
+import BirthdayList from './components/BirthdayList/BirthdayList';
+
 
 // если необходимо, вид сборки можно проверить в коде:
 // if (process.env.NODE_ENV === 'production') {
@@ -45,6 +43,7 @@ ReactDOM.render(
         <Route path="/lifetech" component={EmployeeList} />
         <Route path="/search/:searchword" component={EmployeeList} />
         <Route path="/employee/:id" component={Profile} />
+        <Route path="/birthday" component={BirthdayList} />
       </div>
     </Router>
   </Provider>

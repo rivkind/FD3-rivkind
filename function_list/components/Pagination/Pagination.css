@@ -2,3 +2,45 @@
     text-align: center;
     padding:30px;
 }
+.PaginationBlock button{
+    color: #333;
+    background-color: #fff;
+    border-color: #ccc;
+    display: inline-block;
+    padding: 6px 12px;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.42857143;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    touch-action: manipulation;
+    cursor: pointer;
+    background-image: none;
+    border: 1px solid #aaa;
+    border-radius: 4px;
+    margin: 0px 10px;
+}
+.PaginationBlock button:disabled {
+    color: #999;
+    border: 1px solid #ddd;
+    cursor: not-allowed;
+}
+.PaginationBlock select {
+    display: inline-block;
+    height: 34px;
+    padding: 6px 12px;
+    font-size: 14px;
+    line-height: 1.42857143;
+    color: #555;
+    background-color: #fff;
+    background-image: none;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+    margin: 0px 4px;
+}
+.PaginationBlock div{
+    display: inline-block;
+    margin: 0px 10px;
+}

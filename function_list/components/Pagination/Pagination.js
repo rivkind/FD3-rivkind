@@ -33,12 +33,12 @@ class Pagination extends React.PureComponent {
         pages.push(<option key={i} value={i}>{i}</option>);
     }
     for (var i = 0; i < itemPage.length; i++) {
-        itempages.push(<option key={i} value={itemPage[i]}>{itemPage[i]}</option>);
+        itempages.push(<option key={i} value={itemPage[i]}>{itemPage[i]} строк</option>);
     }
 
     return (
       <div className='PaginationBlock'>
-      <button onClick={this.clickBtnBack} disabled={1 == this.props.activePage}>Назад</button>страница <select value={this.props.activePage} onChange={this.chActivePage}>{pages}</select> элементов на странице <select value={this.props.itemPage} onChange={this.chItemPage}>{itempages}</select><button onClick={this.clickBtnForward} disabled={page == this.props.activePage}>Вперед</button>
+      <button onClick={this.clickBtnBack} disabled={1 == this.props.activePage}>Назад</button><div>Страница<select value={this.props.activePage} onChange={this.chActivePage}>{pages}</select> из {page}</div><select value={this.props.itemPage} onChange={this.chItemPage}>{itempages}</select><button onClick={this.clickBtnForward} disabled={page == this.props.activePage}>Вперед</button>
       </div>
     );
   }
