@@ -24,7 +24,7 @@ class Language extends React.PureComponent {
   }
 
   render() {
-    console.log('Рендер Language: ',this.props.lang);
+    
     return (
       <div className='LanguageBlock'>
       {

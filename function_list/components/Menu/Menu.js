@@ -6,7 +6,7 @@ import './Menu.css';
 class Menu extends React.Component {
           
   render() {
-    console.log("Рендер Menu");
+    
     return (
         <div className='MenuBlock'>
           <span></span>

@@ -16,21 +16,20 @@ class Pagination extends React.PureComponent {
     };
 
     chActivePage = (EO) => {
-        this.props.changeActivePage(EO.target.value);
+        this.props.changeActivePage(parseInt(EO.target.value));
     }
 
     chItemPage = (EO) => {
-        this.props.changeItemPage(EO.target.value);
+        this.props.changeItemPage(parseInt(EO.target.value));
     }
     clickBtnBack = () => {
-        this.props.changeActivePage(this.props.activePage-1);
+        this.props.changeActivePage(parseInt(this.props.activePage)-1);
     }
     clickBtnForward = () => {
-        this.props.changeActivePage(this.props.activePage+1);
+        this.props.changeActivePage(parseInt(this.props.activePage)+1);
     }
 
     render() {
-        console.log("Рендер Pagination");
         var page = Math.ceil(this.props.countData/this.props.itemPage);
         var pages = [];
         var itempages = [];

@@ -34,7 +34,7 @@ class Search extends React.PureComponent {
   }
 
   render() {
-    console.log('Рендер Search');
+    
     return (
       <div className='SearchBlock'>
         <span></span>

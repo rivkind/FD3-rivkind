@@ -23,7 +23,6 @@ class EmployeeItem extends React.PureComponent {
         gr: PropTypes.string.isRequired,
         lctn: PropTypes.string.isRequired,
         phone: PropTypes.string.isRequired,
-        email: PropTypes.string.isRequired,
         birthday: PropTypes.string.isRequired,
         maternity: PropTypes.number.isRequired,
         sex: PropTypes.number.isRequired,
@@ -42,7 +41,6 @@ class EmployeeItem extends React.PureComponent {
   }
  
   render() {
-    console.log("_____________________________________");
     const arrayData = [
       {"label":"positionEmployee","name":this.props.items.position,"link":"1","birthday":true},
       {"label":"mngEmployee","name":this.props.items.mng,"link":"1","birthday":false},
@@ -50,8 +48,7 @@ class EmployeeItem extends React.PureComponent {
       {"label":"unitEmployee","name":this.props.items.unit,"link":"1","birthday":false},
       {"label":"teamEmployee","name":this.props.items.gr,"link":"1","birthday":false},
       {"label":"lctnEmployee","name":this.props.items.lctn,"link":"1","birthday":true},
-      {"label":"phoneEmployee","name":this.props.items.phone,"birthday":true},
-      {"label":"emailEmployee","name":this.props.items.email,"birthday":true}];
+      {"label":"phoneEmployee","name":this.props.items.phone,"birthday":true}];
 
     var infoCode=arrayData.map( (data,index) =>
       ((this.props.settings_data[index] && !this.props.birthday) || (this.props.birthday && data.birthday))&&

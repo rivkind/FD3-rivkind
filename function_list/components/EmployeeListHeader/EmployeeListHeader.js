@@ -27,7 +27,7 @@ class EmployeeListHeader extends React.PureComponent {
  
   render() {
     
-    const {surname,sex,position,mng,division,unit,team,lctn,phone,email,birthday} = this.props.list_title;
+    const {surname,sex,position,mng,division,unit,team,lctn,phone,birthday} = this.props.list_title;
     
     const arraySettings = [
         {"label":"positionEmployee","name":position,"sortName":"position","birthday":true},
@@ -36,8 +36,7 @@ class EmployeeListHeader extends React.PureComponent {
         {"label":"unitEmployee","name":unit,"sortName":"unit","birthday":false},
         {"label":"teamEmployee","name":team,"sortName":"gr","birthday":false},
         {"label":"lctnEmployee","name":lctn,"sortName":"lctn","birthday":true},
-        {"label":"phoneEmployee","name":phone,"sortName":"phone","birthday":true},
-        {"label":"emailEmployee","name":email,"sortName":"email","birthday":true}];
+        {"label":"phoneEmployee","name":phone,"sortName":"phone","birthday":true}];
 
     const headerCode=arraySettings.map( (setting,index) =>
         ((this.props.settings_data[index] && !this.props.birthday) || (this.props.birthday && setting.birthday))&&

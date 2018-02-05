@@ -42,7 +42,6 @@ class SettingsWindow extends React.PureComponent {
       this.refs.teamRef.checked,
       this.refs.lctnRef.checked,
       this.refs.phoneRef.checked,
-      this.refs.emailRef.checked
     ];
     
     this.props.saveSettingsAction(dataSettings,this.props.isSettings);
@@ -58,8 +57,7 @@ class SettingsWindow extends React.PureComponent {
       {"label":"unitRef","name":unit},
       {"label":"teamRef","name":team},
       {"label":"lctnRef","name":lctn},
-      {"label":"phoneRef","name":phone},
-      {"label":"emailRef","name":email}];
+      {"label":"phoneRef","name":phone}];
 
     var inputCode=arraySettings.map( (setting,index) =>
       <div className='inputBlockSettings' key={index}><div><input  type='checkbox' ref={setting.label} defaultChecked={this.props.settings_data[index]} /></div><div>{setting.name}</div></div>

@@ -1,5 +1,5 @@
 "use strict";
-
+require("babel-polyfill");
 
 import { EMPLOYEE_CHANGE_DATA, EMPLOYEE_CHANGE_COMPANY, EMPLOYEE_CHANGE_SORT, EMPLOYEE_CHANGE_TOOLTIP, EMPLOYEE_CHANGE_ACTIVE_PAGE, EMPLOYEE_CHANGE_ITEM_PAGE } from '../constants/constants';
 
@@ -78,7 +78,7 @@ const changeSort = (name,direction) => async dispatch => {
     
 }
 
-const changeActivePage = (page) => dispatch =>  {
+const changeActivePage = (page) => async dispatch =>  {
     dispatch({
         type: EMPLOYEE_CHANGE_ACTIVE_PAGE,
         preload:page,

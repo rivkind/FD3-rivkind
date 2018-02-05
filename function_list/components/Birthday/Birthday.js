@@ -21,8 +21,6 @@ class Birthday extends React.PureComponent {
 
   render() {
 
-    console.log("Рендер Birthday");
-
     var date = new Date();
 
     var nowDay = '2000-' + ('0' + (date.getMonth() + 1)).slice(-2) + '-' + ('0' + date.getDate()).slice(-2);

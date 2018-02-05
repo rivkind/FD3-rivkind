@@ -93,7 +93,6 @@ class EmployeeList extends React.PureComponent {
       
     }
     
-    console.log('Render Employee1');
     return (
       <div>
         <Counter count={count} />

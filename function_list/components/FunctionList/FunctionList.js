@@ -3,6 +3,8 @@ import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
 
 import { fetchData } from '../../actions/functionlist';
+import { changeSort } from '../../actions/employeelist';
+import { changeActivePage } from '../../actions/employeelist';
 
 import Spinner from '../Spinner/Spinner';
 import HeaderBlock from '../HeaderBlock/HeaderBlock';
@@ -19,11 +21,12 @@ class FunctionList extends React.Component {
   componentDidUpdate(oldProps, oldState){
       if(oldProps.lang!=this.props.lang){
         this.props.fetchData(this.props.lang);
+        this.props.changeSort('', '');
+        this.props.changeActivePage(1);
       }
   }
   
   render() {
-    console.log("Рендер FunctionList");
     if(this.props.title_site) document.title = this.props.title_site;
 
     return (
@@ -50,7 +53,7 @@ const mapStateToProps = state => ({
 })
 
 const mapDispatchToProps = {
-  fetchData
+  changeActivePage,fetchData,changeSort
 }
 
 export default connect(mapStateToProps, mapDispatchToProps, null, {pure:false})(FunctionList);

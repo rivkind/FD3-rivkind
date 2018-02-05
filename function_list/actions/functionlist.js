@@ -9,7 +9,7 @@ const fetchData = (lang) => async dispatch => {
 
     dispatch({type: FETCH_DATA_START});
     
-    isoFetch("https://life.com.by/lang.php?lang="+lang, {
+    isoFetch("https://openball.org/lang.php?lang="+lang, {
         method: 'post',
     }).then( (response) => {
     
