@@ -6,7 +6,7 @@ import { Router, Route, hashHistory,HashRouter } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import { createStore, applyMiddleware} from 'redux';
 import { routerMiddleware } from 'react-router-redux';
-//require('es6-promise').polyfill();
+
 import thunk from 'redux-thunk'
 import {composeWithDevTools} from 'redux-devtools-extension'
 import createHistory from 'history/createBrowserHistory'
@@ -37,14 +37,13 @@ const store = createStore(combinedReducer, composeWithDevTools(
 ReactDOM.render(
   <Provider store={store}>
     <HashRouter>
-      <div>
-        <HeaderBlock />
+      <FunctionList>
         <Route path="/" exact component={EmployeeList} />
         <Route path="/lifetech" component={EmployeeList} />
         <Route path="/search/:searchword" component={EmployeeList} />
         <Route path="/employee/:id" component={Profile} />
         <Route path="/birthday" component={BirthdayList} />
-      </div>
+      </FunctionList>
     </HashRouter>
   </Provider>
 , document.getElementById('container') );

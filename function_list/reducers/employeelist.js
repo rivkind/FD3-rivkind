@@ -4,8 +4,6 @@ import {  EMPLOYEE_CHANGE_DATA, EMPLOYEE_CHANGE_COMPANY, EMPLOYEE_CHANGE_SORT, E
 
 const initState={
 
-  employee: [],
-  company: '',
   sortName: '',
   sortDirection: '',
   tooltip: 0,

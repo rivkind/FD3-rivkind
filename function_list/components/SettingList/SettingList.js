@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
 
 import { getSettings, changeVisibleSettings } from '../../actions/settinglist';
@@ -8,20 +9,24 @@ import './SettingList.css';
 
 class SettingList extends React.PureComponent {
 
+  static propTypes = {
+    settings_title: PropTypes.string, // передано из Redux
+    isSettings: PropTypes.bool, // передано из Redux
+    settings_data: PropTypes.any, // передано из Redux
+  };
+
   componentWillMount () {
     this.props.getSettings();
   }
 
   
-  chVisibleSettings = () => {
-
-    this.props.changeVisibleSettings(this.props.isSettings);
-  }
-
+  chVisibleSettings = () => this.props.changeVisibleSettings(this.props.isSettings);
+  
   
   render() {
     console.log('Рендер SettingList: ',this.props.settings_data);
-    const {settings} = this.props.settings_title;
+
+    const settings = this.props.settings_title;
     
     return (
       <div className='SettingList'>
@@ -37,7 +42,7 @@ class SettingList extends React.PureComponent {
 }
 
 const mapStateToProps = state => ({
-  settings_title: state.functionlist.title,
+  settings_title: state.functionlist.title.settings,
   isSettings: state.settinglist.isSettings,
   settings_data: state.settinglist.settings,
 })

@@ -1,19 +1,24 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
-
+import {Redirect} from 'react-router';
 
 import { newSearchWord } from '../../actions/search';
+
 
 import './Search.css';
 
 class Search extends React.PureComponent {
 
-  newTextRef = null;
-  
-  setNewTextSearch = (ref) => {
-    this.newTextRef=ref;
+  static propTypes = {
+    search_title: PropTypes.string, // передано из Redux
+    search: PropTypes.string, // передано из Redux
   };
 
+  newTextRef = null;
+  
+  setNewTextSearch = (ref) => this.newTextRef=ref;
+  
   pressEnter = (target) => {
     if(target.charCode==13) this.setSearch();  
   };
@@ -38,19 +43,19 @@ class Search extends React.PureComponent {
           <a>
             <img src='../images/search.png' onClick={this.setSearch} />
           </a>
-          
         </div>
-        
+        {
+          (this.props.search)&&
+          <Redirect from="/" to={`/search/${this.props.search}`} />
+        }
       </div>
     );
   }
-
 }
 
 const mapStateToProps = state => ({
   search_title: state.functionlist.title.search,
   search: state.search.search,
-  
 })
 
 const mapDispatchToProps = {

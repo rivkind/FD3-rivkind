@@ -1,25 +1,33 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-
 import {connect} from 'react-redux';
 
-import { fetchData } from '../../actions/functionlist';
 
 import './Profile.css';
 
 class Profile extends React.PureComponent {
 
-  componentDidMount(){
-    if(this.props.employees.length==0){
-      this.props.fetchData(this.props.lang);
-    }
-  }
-
-  componentDidUpdate(oldProps, oldState){
-    if(oldProps.lang!=this.props.lang){
-      this.props.fetchData(this.props.lang);
-    }
-  }
+  static propTypes = {
+    list_title:PropTypes.any, // передано из Redux
+    employees:PropTypes.arrayOf( // передано из Redux
+      PropTypes.shape({
+        id: PropTypes.string.isRequired,
+        surname: PropTypes.string.isRequired,
+        position: PropTypes.string.isRequired,
+        mng: PropTypes.string.isRequired,
+        division: PropTypes.string.isRequired,
+        unit: PropTypes.string.isRequired,
+        gr: PropTypes.string.isRequired,
+        lctn: PropTypes.string.isRequired,
+        phone: PropTypes.string.isRequired,
+        email: PropTypes.string.isRequired,
+        birthday: PropTypes.string.isRequired,
+        maternity: PropTypes.string.isRequired,
+        sex: PropTypes.string.isRequired,
+        photo: PropTypes.string.isRequired,
+      })
+    ),
+  };
 
   render() {
     const {surname,sex,close,position,mng,division,unit,team,lctn,phone,email,birthday} = this.props.list_title;
@@ -34,11 +42,8 @@ class Profile extends React.PureComponent {
     var e = profile.map((elem) => elem.email);
     var p = profile.map((elem) => elem.phone);
     var ph = profile.map((elem) => elem.photo);
-    //var names = profile.map(p => ([p.surname],[p.id]));
-    //console.log(names);
-    //var ht=profile.map( employee =>
-      //<div>{employee.surname}</div>
-    //);
+    var b = profile.map((elem) => elem.birthday);
+    
     return (
       <div className='ProfileBlock'>
         <div className='ProfileBlockHeader'>{surname1}</div>
@@ -47,33 +52,30 @@ class Profile extends React.PureComponent {
           <img src={`/images/${ph}`} />
           </div>
           <div className='ProfileBlockInfo'>
-            
-            
-              <table>
-                <tbody>
-                <tr><td>{birthday}:</td><td>7 марта</td></tr>
+            <table>
+              <tbody>
+                <tr><td>{birthday}:</td><td>{b}</td></tr>
                 <tr><td>{position}:</td><td>{pos}</td></tr>
                 {
-                  (m!='')&&
-                  <tr><td>{mng}:</td><td>{m}</td></tr>
+                (m!='')&&
+                <tr><td>{mng}:</td><td>{m}</td></tr>
                 }
                 {
-                  (d!='')&&
-                  <tr><td>{division}:</td><td>{d}</td></tr>
+                (d!='')&&
+                <tr><td>{division}:</td><td>{d}</td></tr>
                 }
                 {
-                  (u!='')&&
-                  <tr><td>{unit}:</td><td>{u}</td></tr>
+                (u!='')&&
+                <tr><td>{unit}:</td><td>{u}</td></tr>
                 }
                 {
-                  (t!='')&&
-                  <tr><td>{team}:</td><td>{t}</td></tr>
+                (t!='')&&
+                <tr><td>{team}:</td><td>{t}</td></tr>
                 }
                 {
-                  (l!='')&&
-                  <tr><td>{lctn}:</td><td>{l}</td></tr>
+                (l!='')&&
+                <tr><td>{lctn}:</td><td>{l}</td></tr>
                 }
-                
                 <tr><td>{email}:</td><td>{e}</td></tr>
                 <tr><td>{phone}:</td><td>{p}</td></tr>
                 </tbody>
@@ -90,12 +92,9 @@ class Profile extends React.PureComponent {
 const mapStateToProps = state => ({
   list_title: state.functionlist.title,
   employees: state.functionlist.employee,
-  lang: state.language.lang,
 })
 
-const mapDispatchToProps = {
-  fetchData
-}
 
 
-export default connect(mapStateToProps,mapDispatchToProps)(Profile);
+
+export default connect(mapStateToProps)(Profile);

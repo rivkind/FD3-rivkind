@@ -9,6 +9,12 @@ import './Pagination.css';
 
 class Pagination extends React.PureComponent {
 
+    static propTypes = {
+        activePage: PropTypes.number.isRequired, // передано из props
+        itemPage: PropTypes.number.isRequired, // через props
+        countData: PropTypes.number.isRequired, // через props
+    };
+
     chActivePage = (EO) => {
         this.props.changeActivePage(EO.target.value);
     }
@@ -23,33 +29,27 @@ class Pagination extends React.PureComponent {
         this.props.changeActivePage(this.props.activePage+1);
     }
 
-  render() {
-      console.log("Рендер Pagination");
-    var page = Math.ceil(this.props.countData/this.props.itemPage);
-    var pages = [];
-    var itempages = [];
-    var itemPage = [15,25,50,75,100];
-    for (var i = 1; i <= page; i++) {
-        pages.push(<option key={i} value={i}>{i}</option>);
-    }
-    for (var i = 0; i < itemPage.length; i++) {
-        itempages.push(<option key={i} value={itemPage[i]}>{itemPage[i]} строк</option>);
-    }
+    render() {
+        console.log("Рендер Pagination");
+        var page = Math.ceil(this.props.countData/this.props.itemPage);
+        var pages = [];
+        var itempages = [];
+        var itemPage = [15,25,50,75,100];
+        for (var i = 1; i <= page; i++) {
+            pages.push(<option key={i} value={i}>{i}</option>);
+        }
+        for (var i = 0; i < itemPage.length; i++) {
+            itempages.push(<option key={i} value={itemPage[i]}>{itemPage[i]} строк</option>);
+        }
 
-    return (
-      <div className='PaginationBlock'>
-      <button onClick={this.clickBtnBack} disabled={1 == this.props.activePage}>Назад</button><div>Страница<select value={this.props.activePage} onChange={this.chActivePage}>{pages}</select> из {page}</div><select value={this.props.itemPage} onChange={this.chItemPage}>{itempages}</select><button onClick={this.clickBtnForward} disabled={page == this.props.activePage}>Вперед</button>
-      </div>
-    );
-  }
+        return (
+        <div className='PaginationBlock'>
+            <button onClick={this.clickBtnBack} disabled={1 == this.props.activePage}>Назад</button><div>Страница<select value={this.props.activePage} onChange={this.chActivePage}>{pages}</select> из {page}</div><select value={this.props.itemPage} onChange={this.chItemPage}>{itempages}</select><button onClick={this.clickBtnForward} disabled={page == this.props.activePage}>Вперед</button>
+        </div>
+        );
+    }
 
 }
-
-const mapStateToProps = state => ({
-
-  //lang: state.language.lang,
-  
-})
 
 const mapDispatchToProps = {
 
@@ -58,4 +58,4 @@ const mapDispatchToProps = {
 
 }
 
-export default connect(mapStateToProps,mapDispatchToProps)(Pagination);
+export default connect(null,mapDispatchToProps)(Pagination);

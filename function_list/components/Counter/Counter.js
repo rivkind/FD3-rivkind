@@ -1,8 +1,15 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
+
 import './Counter.css';
 
 class Counter extends React.PureComponent {
+
+  static propTypes = {
+    counter_title: PropTypes.string, // передано из Redux
+    count: PropTypes.number, // через props
+  };
 
   render() {
 
@@ -16,7 +23,6 @@ class Counter extends React.PureComponent {
           :
           '0'
         }
-        
         </div>
       </div>
     );

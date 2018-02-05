@@ -1,25 +1,36 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import ReactTooltip from 'react-tooltip'
 import { NavLink } from 'react-router-dom';
 import {connect} from 'react-redux';
 
-import { tooltipVisible } from '../../actions/employeelist';
+//import { tooltipVisible } from '../../actions/employeelist';
 
 import './EmployeeItem.css';
 
-
 class EmployeeItem extends React.PureComponent {
 
-  
-
   static propTypes = {
-    //employee: PropTypes.any, // передано из Redux
-    //lang: PropTypes.any, // передано из Redux
+    settings_data: PropTypes.any, // передано из Redux
+    birthday: PropTypes.string, // передано из props
+    employees:PropTypes.arrayOf( // передано из props
+      PropTypes.shape({
+        id: PropTypes.string.isRequired,
+        surname: PropTypes.string.isRequired,
+        position: PropTypes.string.isRequired,
+        mng: PropTypes.string.isRequired,
+        division: PropTypes.string.isRequired,
+        unit: PropTypes.string.isRequired,
+        gr: PropTypes.string.isRequired,
+        lctn: PropTypes.string.isRequired,
+        phone: PropTypes.string.isRequired,
+        email: PropTypes.string.isRequired,
+        birthday: PropTypes.string.isRequired,
+        maternity: PropTypes.number.isRequired,
+        sex: PropTypes.number.isRequired,
+        pos: PropTypes.string.isRequired,
+      })
+    ),
   };
-  componentDidMount(){
-    //console.log("_____________________________________");
-  }
   
   onHover = (EO) => {
     //this.props.tooltipVisible(EO.target.dataset.id,EO.screenX,EO.screenY);
@@ -32,8 +43,7 @@ class EmployeeItem extends React.PureComponent {
  
   render() {
     console.log("_____________________________________");
-     //console.log("Рендер сотрудника ",this.props.items.id);
-     const arrayData = [
+    const arrayData = [
       {"label":"positionEmployee","name":this.props.items.position,"link":"1","birthday":true},
       {"label":"mngEmployee","name":this.props.items.mng,"link":"1","birthday":false},
       {"label":"divisionEmployee","name":this.props.items.division,"link":"1","birthday":false},
@@ -43,7 +53,7 @@ class EmployeeItem extends React.PureComponent {
       {"label":"phoneEmployee","name":this.props.items.phone,"birthday":true},
       {"label":"emailEmployee","name":this.props.items.email,"birthday":true}];
 
-      var infoCode=arrayData.map( (data,index) =>
+    var infoCode=arrayData.map( (data,index) =>
       ((this.props.settings_data[index] && !this.props.birthday) || (this.props.birthday && data.birthday))&&
       <td key={data.label} className={data.label}>
       {
@@ -52,15 +62,15 @@ class EmployeeItem extends React.PureComponent {
         <NavLink className='linkEmployee' to={`/search/${data.name}`}>{data.name}</NavLink>
         :
         (data.name)
-      }</td>
+      }
+      </td>
     );
 
-    const linkProfile = "/employee/"+this.props.items.id;
-
+    
     return (
       <tr className='EmployeeItem'>
         <td className='surnameEmployee'>
-          <NavLink to={linkProfile} className='linkEmployee' href="#" onMouseOut={this.outHover} onMouseOver={this.onHover} data-id={this.props.items.id}>{this.props.items.surname}</NavLink>
+          <NavLink to={`/employee/${this.props.items.id}`} className='linkEmployee' href="#" onMouseOut={this.outHover} onMouseOver={this.onHover} data-id={this.props.items.id}>{this.props.items.surname}</NavLink>
         </td>
         <td className='sexEmployee'>
         {
@@ -75,28 +85,22 @@ class EmployeeItem extends React.PureComponent {
         }
         </td>
         {
-          (this.props.birthday)&&
-          <td className='birthdayEmployee'>{this.props.items.birthday}</td>
+        (this.props.birthday)&&
+        <td className='birthdayEmployee'>{this.props.items.birthday}</td>
         }
         {infoCode}
         <td></td>
       </tr>
-    )
-    ;
-
+    );
   }
-
 }
-
-
-
 
 const mapStateToProps = state => ({
   settings_data: state.settinglist.settings,
 })
 
-const mapDispatchToProps = {
-  tooltipVisible,
-}
+//const mapDispatchToProps = {
+  //tooltipVisible,
+//}
 
-export default connect(mapStateToProps,mapDispatchToProps)(EmployeeItem);
+export default connect(mapStateToProps)(EmployeeItem);

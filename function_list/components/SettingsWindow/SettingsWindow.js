@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
 
 import { changeVisibleSettings, saveSettingsAction } from '../../actions/settinglist';
@@ -6,9 +7,15 @@ import './SettingsWindow.css';
 
 class SettingsWindow extends React.PureComponent {
 
-    componentWillMount () {
-        document.addEventListener('click', this.handleClickOutside, false);
-    }
+  static propTypes = {
+    settings_title: PropTypes.string, // передано из Redux
+    isSettings: PropTypes.bool, // передано из Redux
+    settings_data: PropTypes.any, // передано из Redux
+  };
+
+  componentWillMount () {
+      document.addEventListener('click', this.handleClickOutside, false);
+  }
 
   componentWillUnmount() {
     document.removeEventListener('click', this.handleClickOutside, false);
@@ -22,9 +29,8 @@ class SettingsWindow extends React.PureComponent {
     }
   }
   
-    chVisibleSettings = () => {
-        this.props.changeVisibleSettings(this.props.isSettings);
-    }
+  chVisibleSettings = () => this.props.changeVisibleSettings(this.props.isSettings);
+    
 
   saveSettings = () => {
     
