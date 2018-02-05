@@ -1,0 +1,586 @@
+.backdrop {
+    z-index: 20000;
+box-sizing: border-box;
+margin: 0;
+display: -webkit-box;
+display: -ms-flexbox;
+display: flex;
+-webkit-box-pack: center;
+    -ms-flex-pack: center;
+        justify-content: center;
+-webkit-box-align: center;
+    -ms-flex-align: center;
+        align-items: center;
+height: 100%;
+width: 100%;
+background: -webkit-linear-gradient(45deg, #ccc, #ccc);
+background: linear-gradient(45deg, #ccc, #ccc);
+opacity:0.7;
+position: fixed;
+top:0px;
+}
+
+.loader {
+display: -webkit-box;
+display: -ms-flexbox;
+display: flex;
+-webkit-box-align: center;
+    -ms-flex-align: center;
+        align-items: center;
+-webkit-box-pack: center;
+    -ms-flex-pack: center;
+        justify-content: center;
+}
+
+.dot {
+background: white;
+margin: 5px;
+-webkit-animation-name: loader;
+        animation-name: loader;
+-webkit-animation-duration: 1s;
+        animation-duration: 1s;
+-webkit-animation-iteration-count: infinite;
+        animation-iteration-count: infinite;
+-webkit-animation-direction: alternate;
+        animation-direction: alternate;
+}
+
+.dot:nth-child(1) {
+-webkit-animation-delay: 0.2s;
+        animation-delay: 0.2s;
+}
+.dot:nth-child(2) {
+-webkit-animation-delay: 0.4s;
+        animation-delay: 0.4s;
+}
+.dot:nth-child(3) {
+-webkit-animation-delay: 0.6s;
+        animation-delay: 0.6s;
+}
+.dot:nth-child(4) {
+-webkit-animation-delay: 0.8s;
+        animation-delay: 0.8s;
+}
+.dot:nth-child(5) {
+-webkit-animation-delay: 1s;
+        animation-delay: 1s;
+}
+
+@-webkit-keyframes loader {
+from {
+    width: 2px;
+    height: 2px;
+    border-radius: 1px;
+}
+to {
+    width: 20px;
+    height: 20px;
+    border-radius: 10px;
+}
+}
+
+@keyframes loader {
+from {
+    width: 2px;
+    height: 2px;
+    border-radius: 1px;
+}
+to {
+    width: 20px;
+    height: 20px;
+    border-radius: 10px;
+}
+}.LogoLink
+{
+    float:left;
+    margin-top: 7px;
+    margin-left: 15px;
+    margin-right: 55px;
+}.SearchBlock
+{
+    float: left;
+    height: 100%;
+    margin-left: 15px;
+    margin-right: 15px;
+}
+.SearchBlock span {
+    display: inline-block;
+    height: 100%;
+    vertical-align: middle;
+  }
+  
+.SearchBlock div{
+   display: inline-block;
+   vertical-align: middle;
+}
+
+.SearchBlock input
+{
+    width: 200px;
+    font-size: 13px;
+    padding: 6px 0 6px 10px;
+    border: 1px solid #cecece;
+    background: #fff;
+    border-radius: 8px;
+    -webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
+}
+.SearchBlock a
+{
+    cursor: pointer;
+}
+
+.SearchBlock img
+{
+    margin-bottom: -10px;
+    margin-left: 0px;
+    width: 30px;
+}
+  .BirthdayBlock
+{
+    float: left;
+    height: 100%;
+    margin-left: 15px;
+    margin-right: 15px;
+}
+.BirthdayBlock>span {
+    display: inline-block;
+    height: 100%;
+    vertical-align: middle;
+}
+.BirthdayBlock div{
+    display: inline-block;
+    vertical-align: middle;
+ }
+ .BirthdayBlock img{
+    margin-bottom: -5px;
+ }
+ .BirthdayBlockItem{
+    cursor: pointer;
+ }
+ .BirthdayBlockItem img{
+    border-radius: 20px;
+    height:40px;
+    
+ }
+ .BirthdayBlock div span{
+    padding:0px 5px;
+ }
+ .LanguageBlock
+{
+    display: inline-block;
+    margin-left: 8px;
+
+}
+.LanguageBlock img{
+    margin-bottom: -7px;
+    cursor: pointer;
+}.FilterWindow>div select{
+    width: 100%;
+    padding: 5px;
+    margin-bottom:10px;
+}
+.FilterWindow h4{
+    padding: 5px 10px;
+    margin-bottom:5px;
+}
+.btnBlockFilter{
+    margin-top:10px;
+}
+.btnBlockFilter input{
+    margin-right:10px;
+    color: #fff;
+    background-color: #337ab7;
+    border-color: #2e6da4;
+    padding: 5px 10px;
+    font-size: 12px;
+    line-height: 1.5;
+    border-radius: 3px;
+    background-image: none;
+    border: 1px solid transparent;
+    touch-action: manipulation;
+    cursor: pointer;
+}
+.btnBlockFilter input:hover{
+    color: #fff;
+    background-color: #437192;
+    
+}.FilterList
+{
+    display: inline-block;
+    padding-bottom: 3px;
+}
+
+.FilterList img{
+    width: 20px;
+    cursor: pointer;
+     
+}
+.FilterList>div{
+    position: fixed;
+    top: 68px;
+    right: 10px;
+    border: 1px solid #add9ed;
+    z-index: 2;
+    background-color: #fff;
+    height: auto;
+    width: 300px;
+    padding: 10px;
+    text-align: left;
+}
+.SettingsWindow h4{
+    padding: 5px 10px;
+    margin-bottom:5px;
+}
+.SettingsWindow div.inputBlockSettings div{
+    display:inline-block;
+    padding: 2px 5px;
+}
+.SettingsWindow div.inputBlockSettings{
+    margin-bottom:5px;
+}
+.btnBlockSettings{
+    margin-top:10px;
+}
+.btnBlockSettings input{
+    margin-right:10px;
+    color: #fff;
+    background-color: #337ab7;
+    border-color: #2e6da4;
+    padding: 5px 10px;
+    font-size: 12px;
+    line-height: 1.5;
+    border-radius: 3px;
+    background-image: none;
+    border: 1px solid transparent;
+    touch-action: manipulation;
+    cursor: pointer;
+}
+.btnBlockSettings input:hover{
+    color: #fff;
+    background-color: #437192;
+    
+}.SettingList
+{
+    display: inline-block;
+    margin-right: 8px;
+}
+
+.SettingList img{
+    width: 22px;
+    cursor: pointer;
+    
+}
+.SettingList>div{
+    position: fixed;
+    top: 68px;
+    right: 10px;
+    border: 1px solid #add9ed;
+    z-index: 2;
+    background-color: #fff;
+    height: auto;
+    width: 200px;
+    padding: 10px;
+    text-align: left;
+}
+.MenuBlock
+{
+    float: right;
+    margin-left: 15px;
+    margin-right: 30px;
+    display: block;
+    height: 100%;
+    vertical-align: middle;
+}
+
+.MenuBlock span 
+{
+    display: inline-block;
+    height: 100%;
+    vertical-align: middle;
+}
+
+.MenuBlock div
+{
+    display: inline-block;
+    vertical-align: middle;
+    height: 100%;
+}
+
+.PageLink {
+    display: inline-block;
+    height: 100%;
+    font-weight: bold;
+    font-size: 16px;
+    color: #fff;
+    text-decoration: none;
+    vertical-align: middle;
+    padding:0px 18px;
+    border-left:1px solid #ccc;
+}
+.PageLink:last-child{
+    border-right:1px solid #ccc;
+}
+
+.PageLink:hover {
+    color: #eee;
+}
+
+.ActivePageLink {
+    background-color: #fff;
+    color: #23A0FF;
+}
+
+.ActivePageLink:hover {
+    color: rgb(110, 154, 185);
+}
+header
+{
+    background: none repeat scroll 0 0 #23A0FF;
+    position: fixed;
+    width: 100%;
+    min-width: 980px;
+    top: 0;
+    z-index: 3;
+    height: 55px;
+    
+
+}
+.HeaderBlockRight
+{
+    float: right;
+    padding: 3px 8px;
+    text-align: right;
+}
+.HeaderBlockRightTop{
+    text-align: right;
+    padding-bottom: 4px;
+}
+.HeaderBlockRightBottom{
+    text-align: right;
+    padding: 2px;
+    
+}*, body 
+{
+  padding: 0px;
+  margin: 0px;
+  font-family: 'Source Sans Pro',sans-serif;
+  font-size: 13px;
+}
+body
+{
+  padding-top: 55px;
+}
+.EmployeeItem{
+    border-bottom:1px solid #ccc;
+    background-color: #fff;
+}
+.linkEmployee{
+    color: inherit;
+    text-decoration: none;
+}
+.linkEmployee:hover{
+    text-decoration: underline;
+}
+.EmployeeItem:hover{
+    background-color: #23A0FF;
+    color:#fff !important;
+}
+.EmployeeItem td{
+    border-bottom:1px solid #ccc;
+   text-decoration: none;
+   
+}
+.EmployeeItem td:last-child{
+    width: 100%;
+}
+.__react_component_tooltip.type-light{
+ border: 1px solid #000;
+ 
+}
+
+.CounterBlock
+{
+    position: fixed;
+    top:0px;
+    left: 70px;
+    height:55px;
+    z-index: 10000;
+    
+}
+.CounterBlock span {
+    display: inline-block;
+    height: 100%;
+    vertical-align: middle;
+  }
+  
+.CounterBlock div{
+   display: inline-block;
+   vertical-align: middle;
+}
+.CounterBlockView
+{
+    font-size: 13px;
+    color: #fff;
+    border-radius:20px;
+    width:30px;
+    -moz-border-radius:20px;
+    -webkit-border-radius:20px;
+    -khtml-border-radius:20px;
+    border:#fff 1px solid;
+    text-shadow:0 1px 0 #fff;
+    text-align:center;
+    padding: 10px 4px;
+    font-weight: bold;
+    cursor: help;
+    display: inline-block;
+    
+    
+}.PaginationBlock{
+    text-align: center;
+    padding:30px;
+}
+.PaginationBlock button{
+    color: #333;
+    background-color: #fff;
+    border-color: #ccc;
+    display: inline-block;
+    padding: 6px 12px;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.42857143;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    touch-action: manipulation;
+    cursor: pointer;
+    background-image: none;
+    border: 1px solid #aaa;
+    border-radius: 4px;
+    margin: 0px 10px;
+}
+.PaginationBlock button:disabled {
+    color: #999;
+    border: 1px solid #ddd;
+    cursor: not-allowed;
+}
+.PaginationBlock select {
+    display: inline-block;
+    height: 34px;
+    padding: 6px 12px;
+    font-size: 14px;
+    line-height: 1.42857143;
+    color: #555;
+    background-color: #fff;
+    background-image: none;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+    margin: 0px 4px;
+}
+.PaginationBlock div{
+    display: inline-block;
+    margin: 0px 10px;
+}.employeeList{
+    margin-top: 37px;
+}
+.EmployeeListBody td{
+    padding:12px 10px;
+    
+}
+.EmployeeListBody tr td:first-child{
+    padding-left:30px;
+    
+}
+.surnameEmployee,.phoneEmployee{
+    white-space: nowrap;
+    min-width: 200px;
+}
+.sexEmployee{
+    width:50px;
+}
+.positionEmployee{
+    max-width: 200px;
+    min-width: 200px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+.mngEmployee,.teamEmployee{
+    min-width: 150px;
+    max-width: 150px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+.divisionEmployee,.unitEmployee{
+    min-width: 180px;
+    max-width: 180px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+.lctnEmployee{
+    white-space: nowrap;
+    min-width:110px;
+}
+.titleEmployee{
+    display: block;
+    position: fixed;
+    top: 55px;
+    background-color: #fff;
+    padding: 10px 0px;
+    white-space: nowrap;
+    text-align: left;
+    font-weight: bold;
+    vertical-align: top;
+    width:100%;
+    border-bottom: 2px solid #32a3eb;
+    padding-left:10px;
+    cursor: pointer;
+}
+.surnameEmployee>div>div{
+    min-width:20px;
+    height:1px;
+    float:left;
+    border:0px;
+}
+.noFoundSearch{
+    text-align: center;
+    padding: 40px;
+    margin-top:50px;
+    font-size: 16px;
+}
+.ProfileBlock{
+    padding-left:40px;
+}
+.ProfileBlockHeader{
+    font-size: 22px;
+    padding: 20px 0px 40px;
+    color: #777;
+}
+.ProfileBlockPhoto{
+    float:left;
+    display: inline-block;
+    padding-right: 50px;
+}
+.ProfileBlockInfo {
+    float:left;
+    display: inline-block;
+}
+.ProfileBlockInfo td{
+    padding: 6px;
+    padding-right:20px;
+    white-space: nowrap;
+}
+.ProfileBlockInfo tr td:first-child{
+    color:#aaa;
+}
+.ProfileBlockInfoRowTitle{
+    display: inline-block;
+    width: 300px;
+}
+.ProfileBlockInfoRowContent{
+    display: inline-block;
+    width: 300px;
+}
