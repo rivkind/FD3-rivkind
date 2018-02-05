@@ -2,7 +2,7 @@
 
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { Router, Route, hashHistory } from 'react-router';
+import { Router, Route, hashHistory,HashRouter } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import { createStore, applyMiddleware} from 'redux';
 import { routerMiddleware } from 'react-router-redux';
@@ -36,7 +36,7 @@ const store = createStore(combinedReducer, composeWithDevTools(
 
 ReactDOM.render(
   <Provider store={store}>
-    <Router history={history}>
+    <HashRouter>
       <div>
         <HeaderBlock />
         <Route path="/" exact component={EmployeeList} />
@@ -45,6 +45,6 @@ ReactDOM.render(
         <Route path="/employee/:id" component={Profile} />
         <Route path="/birthday" component={BirthdayList} />
       </div>
-    </Router>
+    </HashRouter>
   </Provider>
 , document.getElementById('container') );

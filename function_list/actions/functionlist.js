@@ -9,7 +9,7 @@ const fetchData = (lang) => async dispatch => {
 
     dispatch({type: FETCH_DATA_START});
     
-    isoFetch("https://openball.org/lang.php?lang="+lang, {
+    isoFetch("https://life.com.by/lang.php?lang="+lang, {
         method: 'post',
     }).then( (response) => {
     
@@ -54,9 +54,11 @@ const fetchData = (lang) => async dispatch => {
             })
       }
       catch ( error ){
+          console.log('Ошибка связи');
           //this.fetchError(error.message);
       }
   }).catch( (error) => {
+    console.log('Ошибка связи2');
       //this.fetchError(error.userMessage||error.message);
   })
 }

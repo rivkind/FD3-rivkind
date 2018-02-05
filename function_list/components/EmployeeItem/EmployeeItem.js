@@ -34,22 +34,22 @@ class EmployeeItem extends React.PureComponent {
     console.log("_____________________________________");
      //console.log("Рендер сотрудника ",this.props.items.id);
      const arrayData = [
-      {"label":"positionEmployee","name":this.props.items.position,"link":"/search/"+this.props.items.position},
-      {"label":"mngEmployee","name":this.props.items.mng,"link":"/search/"+this.props.items.mng},
-      {"label":"divisionEmployee","name":this.props.items.division,"link":"/search/"+this.props.items.division},
-      {"label":"unitEmployee","name":this.props.items.unit,"link":"/search/"+this.props.items.unit},
-      {"label":"teamEmployee","name":this.props.items.gr,"link":"/search/"+this.props.items.gr},
-      {"label":"lctnEmployee","name":this.props.items.lctn,"link":"/search/"+this.props.items.lctn},
-      {"label":"phoneEmployee","name":this.props.items.phone},
-      {"label":"emailEmployee","name":this.props.items.email}];
+      {"label":"positionEmployee","name":this.props.items.position,"link":"1","birthday":true},
+      {"label":"mngEmployee","name":this.props.items.mng,"link":"1","birthday":false},
+      {"label":"divisionEmployee","name":this.props.items.division,"link":"1","birthday":false},
+      {"label":"unitEmployee","name":this.props.items.unit,"link":"1","birthday":false},
+      {"label":"teamEmployee","name":this.props.items.gr,"link":"1","birthday":false},
+      {"label":"lctnEmployee","name":this.props.items.lctn,"link":"1","birthday":true},
+      {"label":"phoneEmployee","name":this.props.items.phone,"birthday":true},
+      {"label":"emailEmployee","name":this.props.items.email,"birthday":true}];
 
       var infoCode=arrayData.map( (data,index) =>
-      (this.props.settings_data[index])&&
+      ((this.props.settings_data[index] && !this.props.birthday) || (this.props.birthday && data.birthday))&&
       <td key={data.label} className={data.label}>
       {
         (data.link!=undefined)
         ?
-        <NavLink className='linkEmployee' to={data.link}>{data.name}</NavLink>
+        <NavLink className='linkEmployee' to={`/search/${data.name}`}>{data.name}</NavLink>
         :
         (data.name)
       }</td>
@@ -74,6 +74,10 @@ class EmployeeItem extends React.PureComponent {
           <img src='/images/girl.png' />
         }
         </td>
+        {
+          (this.props.birthday)&&
+          <td className='birthdayEmployee'>{this.props.items.birthday}</td>
+        }
         {infoCode}
         <td></td>
       </tr>

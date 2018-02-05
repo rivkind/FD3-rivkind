@@ -33,6 +33,7 @@ class Profile extends React.PureComponent {
     var l = profile.map((elem) => elem.lctn);
     var e = profile.map((elem) => elem.email);
     var p = profile.map((elem) => elem.phone);
+    var ph = profile.map((elem) => elem.photo);
     //var names = profile.map(p => ([p.surname],[p.id]));
     //console.log(names);
     //var ht=profile.map( employee =>
@@ -43,7 +44,7 @@ class Profile extends React.PureComponent {
         <div className='ProfileBlockHeader'>{surname1}</div>
         <div className='ProfileBlockContent'>
           <div className='ProfileBlockPhoto'>
-          <img src='/images/profile.jpg' />
+          <img src={`/images/${ph}`} />
           </div>
           <div className='ProfileBlockInfo'>
             
