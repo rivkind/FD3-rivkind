@@ -16,6 +16,7 @@ class FunctionList extends React.Component {
   static propTypes = {
     lang: PropTypes.string, // передано из Redux
     isLoading: PropTypes.bool.isRequired,// передано из Redux
+    isError: PropTypes.bool.isRequired,// передано из Redux
   };
 
   componentDidUpdate(oldProps, oldState){
@@ -39,7 +40,13 @@ class FunctionList extends React.Component {
         null
       }
       <HeaderBlock />
-      {this.props.children}
+      {
+        (!this.props.isError)?
+        <div>{this.props.children}</div>
+        :
+        <div className='errorBlock'>Загрузка данных недоступна, попробуйте обновить страницу через пару минут...</div>
+      }
+      
       </div>
     );
   }
@@ -50,6 +57,7 @@ class FunctionList extends React.Component {
 const mapStateToProps = state => ({
   lang: state.language.lang,
   isLoading: state.functionlist.isLoading,
+  isError: state.functionlist.isError,
 })
 
 const mapDispatchToProps = {

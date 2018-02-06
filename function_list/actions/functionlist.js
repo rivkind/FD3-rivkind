@@ -15,7 +15,7 @@ const fetchData = (lang) => async dispatch => {
     
       if (!response.ok) {
           let Err=new Error("fetch error " + response.status);
-          Err.userMessage="Ошибка связи";
+         // Err.userMessage="Ошибка связи";
           throw Err;
       }else
           return response.json();
@@ -54,14 +54,21 @@ const fetchData = (lang) => async dispatch => {
             })
       }
       catch ( error ){
-          console.log('Ошибка связи');
-          //this.fetchError(error.message);
+        dispatch({
+            type: FETCH_DATA_FAILURE,
+        })
       }
   }).catch( (error) => {
-    console.log('Ошибка связи2');
-      //this.fetchError(error.userMessage||error.message);
+    dispatch({
+        type: FETCH_DATA_FAILURE,
+    })
   })
 }
+
+
+
+    
+
 
 export {
     fetchData,

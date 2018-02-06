@@ -4,6 +4,7 @@ import {  FETCH_DATA_START,FETCH_DATA_SUCCESS,FETCH_DATA_FAILURE } from '../cons
 
 const initState={
   isLoading: true,
+  isError: false,
   employee: [],
   title: [],
   position: [],
@@ -36,8 +37,11 @@ function functionListReducer(state=initState,action) {
     }
 
     case FETCH_DATA_FAILURE: {
-      
-      return state;
+      let newState={...state,
+        isError:true,
+        isLoading:false,
+      };
+      return newState;
     }
     
 
