@@ -85,7 +85,7 @@ const changeActivePage = (page) => async dispatch =>  {
     }) 
 }
 
-const changeItemPage = (page) => dispatch =>  {
+const changeItemPage = (page) => async dispatch =>  {
     dispatch({
         type: EMPLOYEE_CHANGE_ITEM_PAGE,
         preload:page,

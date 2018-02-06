@@ -1,0 +1,27 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`работа Spinner 1`] = `
+<div
+  className="backdrop"
+>
+  <div
+    className="loader"
+  >
+    <div
+      className="dot"
+    />
+    <div
+      className="dot"
+    />
+    <div
+      className="dot"
+    />
+    <div
+      className="dot"
+    />
+    <div
+      className="dot"
+    />
+  </div>
+</div>
+`;

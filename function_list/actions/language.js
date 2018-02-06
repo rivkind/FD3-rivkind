@@ -26,7 +26,7 @@ const getLanguage = (lang) => async dispatch =>  {
   }
 }
 
-const languageChange = (lang) => dispatch => {
+const languageChange = (lang) => async dispatch => {
 
   localStorage.setItem('language', lang);
 

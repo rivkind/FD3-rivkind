@@ -10,7 +10,7 @@ const initState={
   position: [],
   unit: [],
   team: [],
-  company: 'life',
+  //company: 'life',
 }
 
 

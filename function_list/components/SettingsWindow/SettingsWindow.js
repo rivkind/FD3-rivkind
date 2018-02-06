@@ -8,7 +8,7 @@ import './SettingsWindow.css';
 class SettingsWindow extends React.PureComponent {
 
   static propTypes = {
-    settings_title: PropTypes.string, // передано из Redux
+    settings_title: PropTypes.any, // передано из Redux
     isSettings: PropTypes.bool, // передано из Redux
     settings_data: PropTypes.any, // передано из Redux
   };

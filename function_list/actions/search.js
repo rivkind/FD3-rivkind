@@ -1,4 +1,5 @@
 "use strict";
+require("babel-polyfill");
 
 import { SEARCH_SET } from '../constants/constants';
 

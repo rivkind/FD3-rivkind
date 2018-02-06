@@ -3,12 +3,12 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
 
-import TestComponent from '../components/TestComponent';
+import Spinner from '../components/Spinner/Spinner';
 
-test('работа TestComponent', () => {
+test('работа Spinner', () => {
 
   const component = renderer.create(
-    <TestComponent />
+    <Spinner />
   );
 
   let componentTree=component.toJSON();

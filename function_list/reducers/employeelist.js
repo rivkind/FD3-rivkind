@@ -19,7 +19,7 @@ const initState={
 function employeeListReducer(state=initState,action) {
   switch (action.type) {
 
-    case EMPLOYEE_CHANGE_DATA: {
+    /*case EMPLOYEE_CHANGE_DATA: {
       let newState={...state,
         employee:action.preload,
         company:action.company,
@@ -31,7 +31,7 @@ function employeeListReducer(state=initState,action) {
         company:action.preload,
       };
       return newState;
-    }
+    }*/
     case EMPLOYEE_CHANGE_SORT: {
       let newState={...state,
         sortName:action.preload,
@@ -39,14 +39,14 @@ function employeeListReducer(state=initState,action) {
       };
       return newState;
     }
-    case EMPLOYEE_CHANGE_TOOLTIP: {
+    /*case EMPLOYEE_CHANGE_TOOLTIP: {
       let newState={...state,
         tooltip:action.preload,
         tooltipX:action.x,
         tooltipY:action.y,
       };
       return newState;
-    }
+    }*/
     case EMPLOYEE_CHANGE_ACTIVE_PAGE: {
       let newState={...state,
         activePage:action.preload,
