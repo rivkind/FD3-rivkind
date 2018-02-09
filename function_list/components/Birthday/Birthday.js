@@ -3,6 +3,8 @@ import PropTypes from 'prop-types';
 import { NavLink } from 'react-router-dom';
 import {connect} from 'react-redux';
 
+import { tooltipVisible } from '../../actions/employeelist';
+
 import './Birthday.css';
 
 class Birthday extends React.PureComponent {
@@ -19,6 +21,15 @@ class Birthday extends React.PureComponent {
     ),
   };
 
+  onHover = (EO) => {
+    this.props.tooltipVisible(EO.target.dataset.id,EO.screenX,EO.screenY);
+    //console.log(EO.screenY);
+  }
+  outHover = (EO) => {
+    this.props.tooltipVisible(0,0,0);
+    //console.log(EO.screenY);
+  }
+
   render() {
 
     var date = new Date();
@@ -29,7 +40,7 @@ class Birthday extends React.PureComponent {
       .filter(employee => employee.birthday==nowDay)
       .map(employee =>
         <div key={employee.id}>
-          <NavLink title={employee.surname} to={`/employee/${employee.id}`} className='BirthdayBlockItem'><img src={`/images/${employee.photo}`} /></NavLink>
+          <NavLink title={employee.surname} to={`/employee/${employee.id}`} className='BirthdayBlockItem'><img src={`/images/${employee.photo}`} onClick={this.outHover}  onMouseOut={this.outHover} onMouseOver={this.onHover} data-id={employee.id} /></NavLink>
           <span></span>
         </div>
       );
@@ -55,4 +66,8 @@ const mapStateToProps = state => ({
   employees: state.functionlist.employee,
 })
 
-export default connect(mapStateToProps)(Birthday);
+const mapDispatchToProps = {
+  tooltipVisible,
+}
+
+export default connect(mapStateToProps,mapDispatchToProps)(Birthday);

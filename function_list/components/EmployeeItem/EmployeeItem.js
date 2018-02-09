@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { NavLink } from 'react-router-dom';
 import {connect} from 'react-redux';
 
-//import { tooltipVisible } from '../../actions/employeelist';
+import { tooltipVisible } from '../../actions/employeelist';
 
 import './EmployeeItem.css';
 
@@ -32,11 +32,11 @@ class EmployeeItem extends React.PureComponent {
   };
   
   onHover = (EO) => {
-    //this.props.tooltipVisible(EO.target.dataset.id,EO.screenX,EO.screenY);
+    this.props.tooltipVisible(EO.target.dataset.id,EO.screenX,EO.screenY);
     //console.log(EO.screenY);
   }
   outHover = (EO) => {
-    //this.props.tooltipVisible(0,0,0);
+    this.props.tooltipVisible(0,0,0);
     //console.log(EO.screenY);
   }
  
@@ -67,7 +67,7 @@ class EmployeeItem extends React.PureComponent {
     return (
       <tr className='EmployeeItem'>
         <td className='surnameEmployee'>
-          <NavLink to={`/employee/${this.props.items.id}`} className='linkEmployee' href="#" onMouseOut={this.outHover} onMouseOver={this.onHover} data-id={this.props.items.id}>{this.props.items.surname}</NavLink>
+          <NavLink to={`/employee/${this.props.items.id}`} className='linkEmployee' href="#" onClick={this.outHover} onMouseOut={this.outHover} onMouseOver={this.onHover} data-id={this.props.items.id}>{this.props.items.surname}</NavLink>
         </td>
         <td className='sexEmployee'>
         {
@@ -96,8 +96,8 @@ const mapStateToProps = state => ({
   settings_data: state.settinglist.settings,
 })
 
-//const mapDispatchToProps = {
-  //tooltipVisible,
-//}
+const mapDispatchToProps = {
+  tooltipVisible,
+}
 
-export default connect(mapStateToProps)(EmployeeItem);
+export default connect(mapStateToProps,mapDispatchToProps)(EmployeeItem);

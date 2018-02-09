@@ -263,7 +263,7 @@ to {
 }.SettingList
 {
     display: inline-block;
-    margin-right: 8px;
+    
 }
 
 .SettingList img{
@@ -283,7 +283,40 @@ to {
     padding: 10px;
     text-align: left;
 }
-.MenuBlock
+.Tooltip{
+    border: 1px solid #ccc;
+    border-radius:4px;
+    padding: 8px;
+    background-color:white;
+    z-index:1000;
+    position:fixed;
+    max-width: 350px;
+}
+.surnameTooltip{
+    margin-bottom: 10px;
+    text-align: center;
+    font-weight: bold;
+}
+.infoTooltip{
+    display: table;
+}
+.photoTooltip,.iTooltip{
+    display: table-cell;
+    vertical-align: top;
+    padding: 5px;
+    color: #555;
+}
+.iTooltip div div{
+    padding:5px;
+    font-size: 11px;
+    line-height: 14px;
+}
+.photoTooltip{
+    min-width: 70px;
+}
+.photoTooltip img{
+    width: 70px;
+}.MenuBlock
 {
     float: right;
     margin-left: 15px;
@@ -370,6 +403,10 @@ header
 body
 {
   padding-top: 55px;
+}
+.errorBlock{
+  text-align: center;
+  padding-top:50px;
 }
 .EmployeeItem{
     border-bottom:1px solid #ccc;

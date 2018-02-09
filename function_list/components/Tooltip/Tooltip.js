@@ -1,33 +1,46 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+import {connect} from 'react-redux';
 
-
+import './Tooltip.css';
 
 
 class Tooltip extends React.Component {
 
   render() {
 
+    const {surname,sex,close,position,mng,division,unit,team,lctn,phone,email,birthday} = this.props.list_title;
+    var profile = this.props.employees.filter(employee => employee.id == this.props.tooltipid);
+    var surname1 = profile.map((elem) => elem.surname);
+    var pos = profile.map((elem) => elem.position);
+    var m = profile.map((elem) => elem.mng);
+    var d = profile.map((elem) => elem.division);
+    var u = profile.map((elem) => elem.unit);
+    var t = profile.map((elem) => elem.gr);
+    var l = profile.map((elem) => elem.lctn);
+    var e = profile.map((elem) => elem.email);
+    var p = profile.map((elem) => elem.phone);
+    var ph = profile.map((elem) => elem.photo);
+    var b = profile.map((elem) => elem.birthday);
+
     return (
-        <div style={{left:this.props.offsetx,top:this.props.offsety,backgroundColor:'white',zIndex:1000,position:'fixed'}}>
-        <div id="qtip-7" role="alert" style={{zIndex: 15002}}>
-          <div style={{backgroundColor: 'transparent !important', border: '0px none !important', width: '8px', height: '8px', lineHeight: '8px', top: '-1px', left: '-8px'}}>
-            <canvas width='8px' height='8px' style={{lineHeight: '8px',position: 'absolute', color: '#123456',backgroundColor: 'transparent !important', border: '0px none !important', width: '8px', height: '8px'}}></canvas>
-          </div>
-          <div id="qtip-7-content" aria-atomic="true">
+        <div className='Tooltip' style={{left:this.props.offsetx,top:this.props.offsety}}>
+        
+          
+          <div>
             <div>
-              <div>
-                <div>Drozd Vera</div>
+              <div className='surnameTooltip'>{surname1}</div>
+            </div>
+            <div className='infoTooltip'>
+              <div className='photoTooltip'><img src={`/images/${ph}`} /></div>
+              <div className='iTooltip'>
+                <div><div>{position}: {pos}</div><div>{mng}: </div><div>{phone}: {p}</div></div>
               </div>
-              <div>
-                <div><img src="photos/vera.drozd.jpg" width="90px" /></div>
-                <div>
-                  <div>Position: Leading Legal Advisor<br />Organization: BeST<br />Management: <br />Phone: +375 (25) 909 12 07<br />Manager: <a>Baltunou Victar</a></div>
-                </div>
-                <div style={{clear:'both'}}></div>
-              </div>
-            <div><a href="index.php?id=1362">To complete employee profile</a></div>
-          </div>
-        </div>
+              <div style={{clear:'both'}}></div>
+            </div>
+            
+          
+        
       </div>
       
       
@@ -38,5 +51,12 @@ class Tooltip extends React.Component {
   }
 
 }
+const mapStateToProps = state => ({
+  list_title: state.functionlist.title,
+  employees: state.functionlist.employee,
+})
 
-export default Tooltip;
+
+
+
+export default connect(mapStateToProps)(Tooltip);

@@ -8,6 +8,7 @@ import Birthday from '../Birthday/Birthday';
 import Language from '../Language/Language';
 import FilterList from '../FilterList/FilterList';
 import SettingList from '../SettingList/SettingList';
+import Tooltip from '../Tooltip/Tooltip';
 import Menu from '../Menu/Menu';
 
 import './HeaderBlock.css';
@@ -39,7 +40,10 @@ class HeaderBlock extends React.Component {
             <Menu />
           </span>
         }
-        
+        {
+          (this.props.tooltip>0)&&
+          <Tooltip offsetx={this.props.tooltipX} offsety={this.props.tooltipY} tooltipid={this.props.tooltip} />
+        }
       </header>
     );
   }
@@ -48,6 +52,9 @@ class HeaderBlock extends React.Component {
 
 const mapStateToProps = state => ({
   isError: state.functionlist.isError,
+  tooltip: state.employeelist.tooltip,
+  tooltipX: state.employeelist.tooltipX,
+  tooltipY: state.employeelist.tooltipY,
 })
 
 

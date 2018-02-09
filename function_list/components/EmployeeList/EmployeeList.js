@@ -7,6 +7,7 @@ import EmployeeListHeader from '../EmployeeListHeader/EmployeeListHeader';
 import Counter from '../Counter/Counter';
 import Pagination from '../Pagination/Pagination';
 
+
 import { changeCount, changeActivePage } from '../../actions/employeelist';
 
 import './EmployeeList.css';
@@ -114,6 +115,7 @@ class EmployeeList extends React.PureComponent {
           (this.props.employees.length > 0 && count == 0 && search != '')&&
           <div className='noFoundSearch'>По Вашему запросу "{search}" данных не найдено!</div>
         }
+        
       </div>
     );
   }

@@ -39,14 +39,14 @@ function employeeListReducer(state=initState,action) {
       };
       return newState;
     }
-    /*case EMPLOYEE_CHANGE_TOOLTIP: {
+    case EMPLOYEE_CHANGE_TOOLTIP: {
       let newState={...state,
         tooltip:action.preload,
         tooltipX:action.x,
         tooltipY:action.y,
       };
       return newState;
-    }*/
+    }
     case EMPLOYEE_CHANGE_ACTIVE_PAGE: {
       let newState={...state,
         activePage:action.preload,
