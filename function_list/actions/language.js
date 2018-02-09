@@ -4,17 +4,21 @@ require("babel-polyfill");
 import { LANGUAGE_CHANGE } from '../constants/constants';
 
 
-const getLanguage = (lang) => async dispatch =>  {
+const getLanguage = (lang_start) => async dispatch =>  {
   try { 
-    var lang_old = lang;
+    lang='rus';
+    
+    //var lang_old = lang;
     var lang = lang;
-    (localStorage.getItem('language') !== null)
+    (localStorage.getItem('language') !== null && localStorage.getItem('language') != 'undefined')
     ?
     lang = localStorage.getItem('language')
     :
     localStorage.setItem('language', lang);
+
     
-    if(lang_old != lang){
+    
+    if(lang_start ==''){
       dispatch({
         type: LANGUAGE_CHANGE,
         preload:lang,
