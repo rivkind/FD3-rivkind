@@ -431,10 +431,7 @@ body
 .EmployeeItem td:last-child{
     width: 100%;
 }
-.__react_component_tooltip.type-light{
- border: 1px solid #000;
- 
-}
+
 
 .titleEmployee{
     display: block;
@@ -450,6 +447,9 @@ body
     border-bottom: 2px solid #32a3eb;
     padding-left:10px;
     cursor: pointer;
+}
+.birthdayEmployee{
+    min-width: 130px;
 }.CounterBlock
 {
     position: fixed;

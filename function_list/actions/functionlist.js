@@ -38,15 +38,15 @@ const fetchData = (lang) => async dispatch => {
                 if (obj1.name > obj2.name) return 1;
                 return 0;
             });
-            var employee = data.employee.sort(function(obj1, obj2) {
-                if (obj1.surname < obj2.surname) return -1;
-                if (obj1.surname > obj2.surname) return 1;
-                return 0;
-            });
+            //var employee = data.employee.sort(function(obj1, obj2) {
+               // if (obj1.surname < obj2.surname) return -1;
+               // if (obj1.surname > obj2.surname) return 1;
+               // return 0;
+            //});
 
             dispatch({
                 type: FETCH_DATA_SUCCESS,
-                data:employee,
+                data:data.employee,
                 title:data.title,
                 position:position,
                 unit:unit,

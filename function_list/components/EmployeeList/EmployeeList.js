@@ -55,8 +55,9 @@ class EmployeeList extends React.PureComponent {
     };
   }
 
-  prepareData = (data,company,search=null,sort_name=null,direction=null) => {
+  prepareData = (data,company,search=null,sort_name='surname',direction='asc') => {
     
+
     var new_data = [];
     if(company=='search'){
         new_data = data.filter(employee => employee.search.toLowerCase().indexOf(search.toLowerCase())!=-1)
